@@ -73,7 +73,7 @@ async function main() {
       continue;
     }
 
-    const periodic = co.filings.filter(f => ['10-K', '10-Q', '20-F'].includes(f.form));
+    const periodic = (co.periodic || co.filings || []).filter(f => ['10-K', '10-Q', '20-F'].includes(f.form));
     const events = periodic.map(f => {
       const r = reaction(data.bars, f.filingDate);
       return r ? Object.assign({ form: f.form, filingDate: f.filingDate, accession: f.accession }, r) : null;
@@ -93,8 +93,7 @@ async function main() {
       events,
     });
 
-    console.log(`  ${co.ticker.padEnd(6)} ${String(data.bars.length).padStart(4)} bars  ${first ? first.d : '?'} → ${last ? last.d : '?'}  ` +
-      `last ${last ? last.c : '?'} ${data.currency}  ${RANGE} ${out[out.length - 1].rangePct > 0 ? '+' : ''}${out[out.length - 1].rangePct}%  ${events.length} filing events`);
+    if (out.length % 50 === 0) console.log(`  ${out.length}/${idx.companies.length} priced, ${failures.length} failed`);
 
     await sleep(300);   // Yahoo is undocumented and unmetered; do not hammer it.
   }

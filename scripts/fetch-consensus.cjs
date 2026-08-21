@@ -51,11 +51,17 @@ async function main() {
   const out = [];
   const problems = [];
 
+  // Price targets are a paid endpoint — every symbol returned 403 on the free
+  // tier. At 500 companies that is 500 wasted calls and roughly nine extra
+  // minutes at the free tier's 60/minute, so it is skipped unless asked for.
+  const wantTargets = process.argv.includes('--targets');
+  let done = 0;
+
   for (const co of idx.companies) {
     const rec = await call('/stock/recommendation', co.ticker);
     await sleep(1100);                       // free tier is 60 calls/minute
-    const tgt = await call('/stock/price-target', co.ticker);
-    await sleep(1100);
+    const tgt = wantTargets ? await call('/stock/price-target', co.ticker) : { premium: true };
+    if (wantTargets) await sleep(1100);
 
     const trends = Array.isArray(rec.data) ? rec.data : [];
     // Finnhub returns newest first; keep a year of monthly snapshots, oldest first.
@@ -67,7 +73,6 @@ async function main() {
     }));
 
     const t = tgt.data && tgt.data.targetMean ? tgt.data : null;
-    if (rec.premium || tgt.premium) problems.push({ ticker: co.ticker, issue: 'premium endpoint' });
     if (rec.error) problems.push({ ticker: co.ticker, issue: rec.error });
     if (!history.length && !t) problems.push({ ticker: co.ticker, issue: 'no coverage' });
 
@@ -83,16 +88,19 @@ async function main() {
       targetUnavailable: !!tgt.premium,
     });
 
-    const l = history.length ? history[history.length - 1] : null;
-    console.log(`  ${co.ticker.padEnd(6)}` +
-      (l ? `${String(l.total).padStart(3)} analysts  ${l.strongBuy}/${l.buy}/${l.hold}/${l.sell}/${l.strongSell}  (${l.period})`
-         : '  no recommendation data') +
-      (t ? `   target mean ${t.targetMean}` : tgt.premium ? '   target: premium' : '   target: —'));
+    if (++done % 50 === 0) {
+      const covered = out.filter(c => c.latest).length;
+      console.log(`  ${done}/${idx.companies.length} — ${covered} with ratings`);
+    }
   }
 
-  writeOut({ generatedAt: new Date().toISOString(), available: true, problems, companies: out });
-  console.log(`\nWrote data/consensus.json — ${out.filter(c => c.latest).length}/${out.length} with coverage`);
-  for (const p of problems) console.log(`  ! ${p.ticker}: ${p.issue}`);
+  writeOut({
+    generatedAt: new Date().toISOString(), available: true,
+    targetsFetched: wantTargets, problems, companies: out,
+  });
+  console.log(`\nWrote data/consensus.json — ${out.filter(c => c.latest).length}/${out.length} with ratings coverage`);
+  if (!wantTargets) console.log('  price targets skipped (paid endpoint); pass --targets to try anyway');
+  if (problems.length) console.log(`  ! ${problems.length} without coverage: ${problems.slice(0, 12).map(p => p.ticker).join(', ')}${problems.length > 12 ? '…' : ''}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

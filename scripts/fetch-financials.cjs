@@ -30,9 +30,25 @@ const CACHE = path.join(DATA, 'raw-xbrl');
 const METRICS = {
   revenue: {
     label: 'Revenue',
+    // RevenuesNetOfInterestExpense is how banks and brokers state top line;
+    // without it Goldman Sachs has no revenue at all.
     'us-gaap': ['RevenueFromContractWithCustomerExcludingAssessedTax', 'Revenues',
+                'RevenuesNetOfInterestExpense',
                 'RevenueFromContractWithCustomerIncludingAssessedTax', 'SalesRevenueNet'],
     'ifrs-full': ['Revenue', 'RevenueFromContractsWithCustomers'],
+  },
+  // Banks that do not file a single top-line tag state the two halves separately.
+  // Truist and Synchrony report net interest income plus noninterest income and
+  // nothing that sums them, so revenue has to be reconstructed. Hidden helpers.
+  _netInterestIncome: {
+    label: 'Net interest income',
+    'us-gaap': ['InterestIncomeExpenseNet', 'InterestIncomeExpenseAfterProvisionForLoanLoss'],
+    'ifrs-full': [],
+  },
+  _noninterestIncome: {
+    label: 'Noninterest income',
+    'us-gaap': ['NoninterestIncome'],
+    'ifrs-full': [],
   },
   grossProfit: {
     label: 'Gross profit',
@@ -161,14 +177,18 @@ function withGrowth(points) {
   });
 }
 
+let bytes = 0;
+
 async function factsFor(ticker, cik) {
   fs.mkdirSync(CACHE, { recursive: true });
   const f = path.join(CACHE, `${ticker}.json`);
   if (fs.existsSync(f) && (Date.now() - fs.statSync(f).mtimeMs) / 864e5 < 1) {
-    return JSON.parse(fs.readFileSync(f, 'utf8'));
+    const cached = fs.readFileSync(f, 'utf8'); bytes += cached.length; return JSON.parse(cached);
   }
   const data = await getJSON(`https://data.sec.gov/api/xbrl/companyfacts/CIK${padCik(cik)}.json`);
-  fs.writeFileSync(f, JSON.stringify(data));
+  const text = JSON.stringify(data);
+  bytes += text.length;
+  fs.writeFileSync(f, text);
   return data;
 }
 
@@ -197,6 +217,11 @@ async function main() {
       if (!series.depreciationAmortisation[period]) {
         const built = sumSeries(series._depreciation[period], series._amortisation[period]);
         if (built) { series.depreciationAmortisation[period] = built; record.derivedDA = true; }
+      }
+      // Same for bank revenue: net interest income plus noninterest income.
+      if (!series.revenue[period]) {
+        const built = sumSeries(series._netInterestIncome[period], series._noninterestIncome[period]);
+        if (built) { series.revenue[period] = built; record.derivedRevenue = true; }
       }
     }
 
@@ -250,11 +275,11 @@ async function main() {
 
     out.push(record);
 
-    const rev = record.metrics.revenue;
-    const latest = rev && rev.quarterly.length ? rev.quarterly[rev.quarterly.length - 1] : null;
-    console.log(`  ${co.ticker.padEnd(6)} ${String(rev ? rev.tag : 'NO REVENUE TAG').slice(0, 46).padEnd(48)}` +
-      (latest ? `${latest.end}  ${(latest.val / 1e9).toFixed(2)}B ${rev.unit}  yoy ${latest.yoy === null ? '—' : (latest.yoy * 100).toFixed(1) + '%'}` : '(no quarterly points)') +
-      (record.missing.length ? `  missing:${record.missing.length}` : ''));
+    if (out.length % 25 === 0) {
+      const withRev = out.filter(r => r.metrics.revenue).length;
+      const mb = (bytes / 1048576).toFixed(0);
+      console.log(`  ${out.length}/${idx.companies.length} — ${withRev} with revenue, ${mb} MB fetched`);
+    }
   }
 
   fs.writeFileSync(path.join(DATA, 'financials.json'),

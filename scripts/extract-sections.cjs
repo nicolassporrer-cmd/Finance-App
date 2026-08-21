@@ -45,6 +45,17 @@ function termCounts(raw) {
   return out;
 }
 
+// At 500 companies, fetching six filings each is ~3.5 GB for data that only ever
+// feeds one comparison. Pair mode takes the two most recent filings of whichever
+// form the company most recently filed — exactly what one diff needs, and no more.
+function selectFilings(co, limitPer) {
+  const periodic = (co.periodic || co.filings || []).filter(x => PERIODIC.has(x.form));
+  if (!process.env.PAIR_MODE) return periodic.slice(0, limitPer);
+  if (!periodic.length) return [];
+  const form = periodic[0].form;
+  return periodic.filter(f => f.form === form).slice(0, 2);
+}
+
 async function main() {
   fs.mkdirSync(RAW, { recursive: true });
   const idx = JSON.parse(fs.readFileSync(path.join(DATA, 'filings.json'), 'utf8'));
@@ -53,16 +64,18 @@ async function main() {
   const limitPer = Number(process.env.MAX_PER_COMPANY || 6);
 
   const records = [];
+  let fetched = 0;
   for (const co of idx.companies) {
     if (only && co.ticker !== only.toUpperCase()) continue;
 
-    for (const f of co.filings.filter(x => PERIODIC.has(x.form)).slice(0, limitPer)) {
+    for (const f of selectFilings(co, limitPer)) {
       const cacheFile = path.join(RAW, `${co.ticker}-${f.accession}.htm`);
       let html;
       if (fs.existsSync(cacheFile)) {
         html = fs.readFileSync(cacheFile, 'utf8');
       } else {
         html = await getText(f.url);
+        fetched += html.length;
         fs.writeFileSync(cacheFile, html);
       }
 
@@ -87,19 +100,24 @@ async function main() {
         terms: termCounts(text),
       });
 
-      const tr = wanted.map(k => `${k}:${sections[k] ? sections[k].length : 'MISSING'}`).join('  ');
-      console.log(`  ${co.ticker.padEnd(6)} ${f.form.padEnd(6)} ${f.filingDate}  ${tr || '(no tracked sections for this form)'}`);
+      if (records.length % 100 === 0) {
+        console.log(`  ${records.length} documents processed, ${Math.round(fetched / 1048576)} MB fetched`);
+      }
     }
   }
 
   records.sort((a, b) => b.filingDate.localeCompare(a.filingDate));
+  // No pretty-printing at this scale — indentation roughly triples the file.
   fs.writeFileSync(path.join(DATA, 'language.json'),
-    JSON.stringify({ generatedAt: new Date().toISOString(), terms: TERMS, records }, null, 2));
+    JSON.stringify({ generatedAt: new Date().toISOString(), terms: TERMS, records }));
 
   const missing = records.filter(r => r.missingTracked.length);
-  console.log(`\nWrote data/language.json — ${records.length} periodic reports`);
+  console.log(`\nWrote data/language.json — ${records.length} periodic reports, ` +
+    `${(fs.statSync(path.join(DATA, 'language.json')).size / 1048576).toFixed(2)} MB`);
   console.log(`Fully parsed: ${records.length - missing.length} / ${records.length}`);
-  for (const r of missing) console.log(`  ! ${r.ticker} ${r.form} ${r.filingDate} missing ${r.missingTracked.join(',')}`);
+  const byForm = {};
+  for (const r of missing) for (const k of r.missingTracked) byForm[r.form + ' ' + k] = (byForm[r.form + ' ' + k] || 0) + 1;
+  for (const [k, n] of Object.entries(byForm).sort((a, b) => b[1] - a[1])) console.log(`  ! ${n} missing ${k}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

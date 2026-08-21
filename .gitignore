@@ -15,10 +15,20 @@ node_modules/
 # Build output
 dist/
 
-# Raw source payloads — large, re-fetchable, no reason to version them.
-# raw/ is ~200 MB of filing HTML; raw-xbrl/ is ~44 MB of XBRL company facts.
+# Raw source caches — large, re-fetchable, no reason to version them.
+# At S&P 500 scale raw-xbrl/ alone is ~1.8 GB.
 data/raw/
 data/raw-xbrl/
+
+# Pipeline intermediates. Every stage regenerates these from scratch on each run,
+# so committing them buys nothing and would add megabytes of churn to the repo
+# every single day. Only the assembled payload the site actually builds from is
+# tracked.
+data/filings.json
+data/financials.json
+data/prices.json
+data/language.json
+data/diffs.json
 
 # Scratch output from design exploration
 data/design-slice.json

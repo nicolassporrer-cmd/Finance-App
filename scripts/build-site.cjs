@@ -10,7 +10,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'dist');
 
 const template = fs.readFileSync(path.join(ROOT, 'site', 'template.html'), 'utf8');
-const payload = fs.readFileSync(path.join(ROOT, 'data', 'mock-payload.json'), 'utf8');
+const payload = fs.readFileSync(path.join(ROOT, 'data', 'payload.json'), 'utf8');
 
 if (template.indexOf('__PAYLOAD__') === -1) {
   console.error('site/template.html has no __PAYLOAD__ placeholder.');
@@ -42,6 +42,6 @@ if (openTags !== closeTags) {
 
 console.log(`dist/index.html — ${(html.length / 1024).toFixed(0)} KB`);
 console.log(`  companies:     ${parsed.companies.length}`);
-console.log(`  filings:       ${parsed.totals.filings}`);
+console.log(`  reports:       ${parsed.totals.periodicIndexed}`);
 console.log(`  comparisons:   ${parsed.totals.comparisons}`);
 console.log(`  consensus:     ${parsed.consensusAvailable ? 'present' : 'absent (' + (parsed.consensusReason || 'unknown') + ')'}`);

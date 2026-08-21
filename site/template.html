@@ -43,6 +43,24 @@ body{margin:0;background:var(--desk);color:var(--ink-d);
 .chap .hint{margin-left:auto;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 
 .tablewrap{overflow-x:auto;border-top:1px solid var(--rule-d);border-bottom:1px solid var(--rule-d)}
+
+/* Alphabetical accordion. 503 rows at once is unreadable and slow to paint, so
+   each letter renders its table only when opened, and stays rendered after. */
+.letters{border-top:1px solid var(--rule-d)}
+.ltr{width:100%;display:flex;align-items:center;gap:12px;background:var(--board);border:0;
+  border-bottom:1px solid var(--rule-d);padding:9px 22px;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-d);text-align:left}
+.ltr:hover{background:#11151B}
+.ltr:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
+.ltr .g{font-size:15px;font-weight:700;color:var(--amber);width:16px}
+.ltr .c{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.ltr .names{color:var(--dim2);font-size:10.5px;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;flex:1;min-width:0}
+.ltr .caret{margin-left:auto;color:var(--dim);font-size:10px}
+.ltr[aria-expanded="true"]{background:#141920}
+.ltr[aria-expanded="true"] .caret{color:var(--amber)}
+.ltrbody{border-bottom:1px solid var(--rule-d);overflow-x:auto}
+.ltrbody[hidden]{display:none}
 table.board{border-collapse:collapse;width:100%;font-size:11.5px}
 table.board th{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);font-weight:400;
   text-align:right;padding:8px 12px;border-bottom:1px solid var(--rule-d);background:var(--board);white-space:nowrap}
@@ -189,25 +207,34 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
   <div class="masthead">
     <div>
       <h1>Disclosure Drift</h1>
-      <p>Pick a company from the board. The three sheets below then read that one company end to end &mdash; what it reports, how its filed language changed, and what the market did about it.</p>
+      <p>Every S&amp;P 500 company, ranked by revenue and grouped by ticker. Pick one and the three sheets below read it end to end &mdash; what it reports, how its filed language changed, and what the market did about it.</p>
     </div>
     <div class="meta" id="mast-meta"></div>
   </div>
 
-  <div class="chap"><span class="n">00</span><h2>The board</h2>
+  <div class="chap"><span class="n">00</span><h2>Top 20 by revenue</h2>
     <span class="hint">&#9733; report filed within 7 days &middot; &#9702; other filing &middot; click a row</span></div>
   <div class="tablewrap"><table class="board" id="board"></table></div>
+
+  <div class="chap"><span class="n">00</span><h2>All companies by ticker</h2>
+    <span class="hint" id="allHint"></span></div>
+  <div class="letters" id="letters"></div>
 
   <div id="sheets"></div>
 
   <div class="notes">
     <h3>What this does not yet do well</h3>
     <ul>
+      <li><b>S&amp;P 500 membership is proprietary.</b> There is no authoritative free source for the constituent list, so it comes from a community-maintained dataset and is recorded with its provenance in <code>data/universe.json</code>. Every CIK is re-checked against SEC's own ticker map rather than trusted from that source, because a wrong CIK silently pulls another company's financials and looks entirely normal on screen.</li>
       <li><b>EBITDA and free cash flow are derived, not reported.</b> Neither is a GAAP concept. EBITDA is operating income plus D&amp;A; FCF is operating cash flow minus capital expenditure. For Microsoft, Alphabet, Broadcom and Oracle, D&amp;A is itself reconstructed by summing depreciation and amortisation of intangibles, because they never tag a combined figure.</li>
       <li><b>Fourth quarters are reconstructed.</b> No company files a Q4 10-Q &mdash; Q4 exists only inside the annual figure. Bars marked <span style="color:var(--amber)">&#9633;</span> are full year minus the three filed quarters, not a filed number.</li>
       <li><b>Period labels are derived from the fiscal year end</b>, not from XBRL's own <code>fy</code> field &mdash; that field records the fiscal year of the filing that reported the fact, so NVIDIA's 2024, 2025 and 2026 year-ends all carry <code>fy2026</code> and would have printed the same year on three different years of data.</li>
-      <li><b>TSMC and ASML have no quarterly figures at all.</b> They file 20-F annually rather than 10-Qs, so their sheets show annual periods only.</li>
-      <li><b>Analyst consensus is ratings only, and shallow.</b> Finnhub's free tier covers recommendation counts for all 15 companies &mdash; including the two foreign issuers &mdash; but price targets sit behind its paid tier and return 403, so no target range is shown. It also returns just four monthly snapshots, so the mix chart is a short window, not a long trend.</li>
+      <li><b>Five companies have almost no history at their current CIK.</b> APA, BNY, FedEx Freight, Honeywell Aerospace and ExxonMobil have reorganised, and SEC has moved the ticker to a newly registered entity &mdash; XOM now resolves to "ExxonMobil Holdings Corp", whose predecessor's ticker list is empty. The pipeline follows SEC's authoritative mapping, which is correct and also means those sheets are nearly bare. They are flagged in red at the top of the sheet.</li>
+      <li><b>Three banks have no single revenue tag.</b> Truist, Synchrony and Regions file net interest income and noninterest income separately with nothing summing them, so revenue is reconstructed from the two. Goldman Sachs needed a different tag entirely (<code>RevenuesNetOfInterestExpense</code>) and had no revenue at all until it was added.</li>
+      <li><b>MD&amp;A is found in 95% of 10-Qs and 92% of 10-Ks</b>, not all. JPMorgan's 10-Q contains no "Management's Discussion" heading at all, and a long tail of filers lay the section out in ways the title match misses. Those companies show no language comparison rather than a wrong one.</li>
+      <li><b>Only 20% of 10-Qs restate Risk Factors.</b> The other 80% cross-reference their 10-K instead, so most quarterly language comparisons cover MD&amp;A alone. That is a real difference in filing practice, not a parsing failure &mdash; and which companies bother is itself informative.</li>
+      <li><b>Dual-class listings are collapsed in the ranking only.</b> Alphabet sits in the index as both GOOG and GOOGL with identical figures; the top twenty counts it once, by CIK. Both still appear under their letters.</li>
+      <li><b>Analyst consensus is ratings only, and shallow.</b> Finnhub's free tier returned recommendation counts for all 503 companies, but price targets sit behind its paid tier and return 403, so no target range is shown anywhere. It also returns only four monthly snapshots, so the mix chart is a short window, not a long trend.</li>
       <li><b>Price reaction is not attribution.</b> It is the move from the last close before the filing to the first close after it. The earnings release, guidance and market-wide moves land in the same window.</li>
       <li><b>The dynamics panel is a set of measurements, not a recommendation.</b> Each line compares two filed figures and states which two. It is not investment advice and does not attempt a verdict.</li>
     </ul>
@@ -267,15 +294,17 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
   });
 
   document.getElementById('mast-meta').innerHTML =
-    D.totals.filings + ' filings &middot; ' + D.totals.periodic + ' reports<br>' +
-    D.totals.priceEvents + ' price events &middot; ' + D.totals.comparisons + ' comparisons<br>' +
-    'built ' + D.generatedAt.slice(0,10);
+    D.totals.companies + ' companies &middot; ' + (D.totals.periodicIndexed || 0).toLocaleString() + ' reports<br>' +
+    D.totals.withFinancials + ' with financials &middot; ' + D.totals.withConsensus + ' with ratings<br>' +
+    D.totals.comparisons + ' text comparisons &middot; built ' + D.generatedAt.slice(0,10);
   document.getElementById('foot-gen').textContent = 'Generated ' + D.generatedAt.slice(0,16).replace('T',' ') + ' UTC';
   document.getElementById('foot-counts').textContent =
-    D.totals.companies + ' companies · quarterly figures for ' +
-    D.companies.filter(function(c){return c.revenueQ.length;}).length;
+    D.totals.withPrices + ' priced · ' + D.totals.withDiffs + ' with language diffs · ' +
+    (D.totals.allForms || 0).toLocaleString() + ' filings of all types seen';
 
-  document.getElementById('strip').innerHTML = latest.map(function(c){
+  // The strip is a ticker tape, not an index: 503 entries would scroll for metres
+  // and paint slowly. It shows the largest names by revenue.
+  document.getElementById('strip').innerHTML = latest.slice(0, 24).map(function(c){
     if(!c.price) return '';
     return '<span><b>'+esc(c.ticker)+'</b> '+c.price.lastClose.toFixed(2)+
       ' <em class="'+(c.price.rangePct>0?'up':'dn')+'" style="font-style:normal">'+pr(c.price.rangePct)+'</em></span>';
@@ -295,29 +324,94 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
   }
 
   // ---------------- 00 · the board ----------------
+  var HEAD = '<thead><tr><th>Sym</th><th>Company</th><th>Period</th><th>Revenue</th><th>YoY</th>' +
+    '<th>EBITDA mgn</th><th>Free cash flow</th><th>Trend</th><th>Price 2y</th>' +
+    '<th>Filing 1d</th><th>New risk</th></tr></thead>';
+
+  function row(c){
+    var r=c.headline.revenue;
+    var em=c.ebitdaMarginQ.length?c.ebitdaMarginQ[c.ebitdaMarginQ.length-1].pct:null;
+    var ev=c.price&&c.price.events.length?c.price.events[0]:null;
+    var rf=c.diffs.filter(function(d){return d.section==='Risk Factors';})
+                  .reduce(function(n,d){return n+d.added;},0);
+    var cell=function(txt,kl){ return txt==='—'?'<td class="z">—</td>':'<td class="'+(kl||'')+'">'+txt+'</td>'; };
+    return '<tr class="pick" data-t="'+c.ticker+'" tabindex="0" role="button" aria-selected="false">' +
+      '<td class="tk">'+esc(c.ticker)+star(c)+'</td>' +
+      '<td class="z" style="max-width:190px;overflow:hidden;text-overflow:ellipsis">'+esc(c.name||'')+'</td>' +
+      '<td class="z">'+(r?r.label:'—')+'</td>' +
+      cell(r?B(r.val)+' '+(c.unit||''):'—') +
+      cell(r&&r.yoy!==null&&r.yoy!==undefined?pc(r.yoy):'—', dirCls(r&&r.yoy,'up','dn')) +
+      cell(em!==null?em.toFixed(1)+'%':'—') +
+      cell(c.fcfQ.length?B(c.fcfQ[c.fcfQ.length-1].val):(c.fcfA.length?B(c.fcfA[c.fcfA.length-1].val):'—')) +
+      '<td>'+(c.price&&c.price.series.length?sparkline(c.price.series,54,15):'<span class="z">—</span>')+'</td>' +
+      cell(c.price&&c.price.rangePct!==null&&c.price.rangePct!==undefined?pr(c.price.rangePct):'—', dirCls(c.price&&c.price.rangePct,'up','dn')) +
+      cell(ev&&ev.pct1d!==null?pr(ev.pct1d):'—', dirCls(ev&&ev.pct1d,'up','dn')) +
+      cell(rf?'+'+rf:'—') +
+      '</tr>';
+  }
+
+  // Dual-class listings are two index members but one business: Alphabet sits in
+  // the index as both GOOG and GOOGL and would otherwise occupy two of the twenty
+  // places with identical figures. Ranked by CIK, keeping the first ticker seen.
+  var TOP_N = 20;
+  var seenCik = {};
+  var ranked = latest.filter(function(c){
+    if (!c.headline.revenue) return false;
+    if (c.cik && seenCik[c.cik]) return false;
+    if (c.cik) seenCik[c.cik] = c.ticker;
+    return true;
+  });
   document.getElementById('board').innerHTML =
-    '<thead><tr><th>Sym</th><th>Period</th><th>Revenue</th><th>YoY</th><th>EBITDA mgn</th>' +
-    '<th>Free cash flow</th><th>Trend</th><th>Price 2y</th><th>Filing 1d</th><th>New risk</th></tr></thead><tbody>' +
-    latest.map(function(c){
-      var r=c.headline.revenue;
-      var em=c.ebitdaMarginQ.length?c.ebitdaMarginQ[c.ebitdaMarginQ.length-1].pct:null;
-      var ev=c.price&&c.price.events.length?c.price.events[0]:null;
-      var rf=c.diffs.filter(function(d){return d.section==='Risk Factors';})
-                    .reduce(function(n,d){return n+d.added;},0);
-      var cell=function(txt,kl){ return txt==='—'?'<td class="z">—</td>':'<td class="'+(kl||'')+'">'+txt+'</td>'; };
-      return '<tr class="pick" data-t="'+c.ticker+'" tabindex="0" role="button" aria-selected="false">' +
-        '<td class="tk">'+esc(c.ticker)+star(c)+'</td>' +
-        '<td class="z">'+(r?r.label:'—')+'</td>' +
-        cell(r?B(r.val)+' '+(c.unit||''):'—') +
-        cell(r&&r.yoy!==null?pc(r.yoy):'—', dirCls(r&&r.yoy,'up','dn')) +
-        cell(em!==null?em.toFixed(1)+'%':'—') +
-        cell(c.fcfQ.length?B(c.fcfQ[c.fcfQ.length-1].val):(c.fcfA.length?B(c.fcfA[c.fcfA.length-1].val):'—')) +
-        '<td>'+(c.price?sparkline(c.price.series,54,15):'—')+'</td>' +
-        cell(c.price&&c.price.rangePct!==null?pr(c.price.rangePct):'—', dirCls(c.price&&c.price.rangePct,'up','dn')) +
-        cell(ev&&ev.pct1d!==null?pr(ev.pct1d):'—', dirCls(ev&&ev.pct1d,'up','dn')) +
-        cell(rf?'+'+rf:'—') +
-        '</tr>';
-    }).join('') + '</tbody>';
+    HEAD + '<tbody>' + ranked.slice(0, TOP_N).map(row).join('') + '</tbody>';
+
+  // ---------------- 00 · alphabetical accordion ----------------
+  // Ticker, not company name: the ticker is what he searches by, and it is what
+  // every other column is keyed to.
+  var groups = {};
+  D.companies.forEach(function(c){
+    var k = /^[A-Z]/.test(c.ticker) ? c.ticker[0] : '#';
+    (groups[k] = groups[k] || []).push(c);
+  });
+  var keys = Object.keys(groups).sort();
+  keys.forEach(function(k){
+    groups[k].sort(function(a,b){ return a.ticker.localeCompare(b.ticker); });
+  });
+
+  document.getElementById('allHint').textContent =
+    D.totals.companies + ' companies · ' + keys.length + ' groups · click a letter to open it';
+
+  document.getElementById('letters').innerHTML = keys.map(function(k){
+    var g = groups[k];
+    var preview = g.slice(0, 14).map(function(c){ return c.ticker; }).join(' · ') + (g.length > 14 ? ' …' : '');
+    return '<button class="ltr" data-l="' + k + '" aria-expanded="false" aria-controls="grp-' + k + '">' +
+        '<span class="g">' + k + '</span>' +
+        '<span class="c">' + g.length + '</span>' +
+        '<span class="names">' + esc(preview) + '</span>' +
+        '<span class="caret">▸</span>' +
+      '</button>' +
+      '<div class="ltrbody" id="grp-' + k + '" hidden></div>';
+  }).join('');
+
+  document.getElementById('letters').addEventListener('click', function(e){
+    var b = e.target.closest('.ltr'); if (!b) return;
+    var k = b.getAttribute('data-l');
+    var body = document.getElementById('grp-' + k);
+    var open = b.getAttribute('aria-expanded') === 'true';
+    if (open){
+      b.setAttribute('aria-expanded','false');
+      b.querySelector('.caret').textContent = '▸';
+      body.hidden = true;
+      return;
+    }
+    // Painted on first open only; 503 rows rendered up front is slow and unread.
+    if (!body.innerHTML){
+      body.innerHTML = '<table class="board">' + HEAD + '<tbody>' +
+        groups[k].map(row).join('') + '</tbody></table>';
+    }
+    b.setAttribute('aria-expanded','true');
+    b.querySelector('.caret').textContent = '▾';
+    body.hidden = false;
+  });
 
   // ---------------- ledger charts ----------------
   function barsChart(series, unit, opts){
@@ -502,11 +596,25 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       '</div>';
   }
 
-  function render(ticker){
+  function render(ticker, scroll){
     var c=D.companies.filter(function(x){return x.ticker===ticker;})[0];
     var h=c.headline;
     var em=c.ebitdaMarginQ.length?c.ebitdaMarginQ[c.ebitdaMarginQ.length-1]:null;
     var per=c.cadence==='annual only'?'annual (20-F filer)':'quarterly';
+
+    // Caveats that change how the figures below should be read. Shown in the sheet
+    // header rather than buried, because each one means the numbers are not
+    // comparable to a normal filer's in some specific way.
+    var flags=[];
+    if(c.thinHistory) flags.push('LIMITED HISTORY AT THIS CIK — reorganised entity, SEC moved the ticker to a new filer');
+    if(c.derivedRevenue) flags.push('revenue reconstructed from net interest + noninterest income');
+    if(c.derivedDA) flags.push('D&amp;A reconstructed from components');
+    if(c.cadence==='annual only') flags.push('annual filer — no quarterly figures exist');
+    var flagLine = flags.length
+      ? '<div style="margin-top:9px;border:1px solid var(--oxblood);color:var(--oxblood);padding:6px 9px;'+
+        'font-family:Archivo,sans-serif;font-size:9.5px;letter-spacing:.06em;line-height:1.6">'+
+        flags.join('<br>')+'</div>'
+      : '';
 
     // --- sheet 01: financials
     var figs=[
@@ -532,7 +640,7 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
 
     var s1='<div class="sheet"><div class="in">'+
       sheetHead(c,'01 &mdash; FINANCIALS','Reported figures','Periods: '+per+'<br>Currency as filed: '+(c.unit||'—'))+
-      '<div class="figs">'+figs+'</div>'+
+      flagLine+'<div class="figs">'+figs+'</div>'+
       '<div class="block"><h4>Exhibit A &mdash; Revenue by '+(c.revenueQ.length?'fiscal quarter':'fiscal year')+
         ', growth year over year'+(c.revenueQ.length?' &nbsp;(dashed outline = reconstructed Q4)':'')+'</h4>'+
         barsChart(revSeries,c.unit)+'</div>'+
@@ -599,20 +707,26 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       '<div class="chap"><span class="n">02</span><h2>Risk language</h2><span class="hint">'+esc(c.ticker)+'</span></div>'+s2+
       '<div class="chap"><span class="n">03</span><h2>Market &amp; dynamics</h2><span class="hint">'+esc(c.ticker)+'</span></div>'+s3;
 
-    var rows=document.querySelectorAll('#board tr.pick');
+    // A company can be selected from the top-20 table or from any opened letter
+    // group, and it may appear in both — mark every row that carries the ticker.
+    var rows=document.querySelectorAll('tr.pick');
     for(var i=0;i<rows.length;i++)
       rows[i].setAttribute('aria-selected', rows[i].getAttribute('data-t')===ticker ? 'true':'false');
+    if (scroll) document.getElementById('sheets').scrollIntoView({behavior:'smooth', block:'start'});
   }
 
-  var board=document.getElementById('board');
-  board.addEventListener('click', function(e){
-    var tr=e.target.closest('tr.pick'); if(tr) render(tr.getAttribute('data-t'));
-  });
-  board.addEventListener('keydown', function(e){
-    if(e.key!=='Enter' && e.key!==' ') return;
-    var tr=e.target.closest('tr.pick'); if(tr){ e.preventDefault(); render(tr.getAttribute('data-t')); }
-  });
+  function pickFrom(el){
+    el.addEventListener('click', function(e){
+      var tr=e.target.closest('tr.pick'); if(tr) render(tr.getAttribute('data-t'), true);
+    });
+    el.addEventListener('keydown', function(e){
+      if(e.key!=='Enter' && e.key!==' ') return;
+      var tr=e.target.closest('tr.pick'); if(tr){ e.preventDefault(); render(tr.getAttribute('data-t'), true); }
+    });
+  }
+  pickFrom(document.getElementById('board'));
+  pickFrom(document.getElementById('letters'));
 
-  render(latest[0].ticker);
+  render(ranked.length ? ranked[0].ticker : D.companies[0].ticker);
 })();
 </script>

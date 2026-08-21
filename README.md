@@ -1,7 +1,7 @@
 
 # Finance App — Disclosure Drift
 
-Tracks what AI-exposed companies **report**, how their **filed language** changes, and what the **market** does about it. All data comes from primary sources: SEC EDGAR and XBRL, Yahoo daily closes, and Finnhub for analyst ratings.
+Tracks what every **S&P 500** company **reports**, how their **filed language** changes, and what the **market** does about it. All data comes from primary sources: SEC EDGAR and XBRL, Yahoo daily closes, and Finnhub for analyst ratings.
 
 Live: https://nicolassporrer-cmd.github.io/Finance-App/
 

@@ -115,7 +115,7 @@ function main() {
     // Compare like with like: a 10-Q against the previous 10-Q, never against a 10-K.
     for (const form of ['10-Q', '10-K', '20-F']) {
       if (!(BY_FORM[form] || []).length) continue;
-      const seq = co.filings.filter(f => f.form === form)
+      const seq = (co.periodic || co.filings || []).filter(f => f.form === form)
         .sort((a, b) => b.filingDate.localeCompare(a.filingDate));
 
       for (let i = 0; i + 1 < seq.length; i++) {
@@ -141,10 +141,12 @@ function main() {
 
   out.sort((a, b) => b.to.date.localeCompare(a.to.date) || b.addedCount - a.addedCount);
   fs.writeFileSync(path.join(DATA, 'diffs.json'),
-    JSON.stringify({ generatedAt: new Date().toISOString(), diffs: out }, null, 2));
+    JSON.stringify({ generatedAt: new Date().toISOString(), diffs: out }));
 
   console.log(`Wrote data/diffs.json — ${out.length} section comparisons\n`);
+  let shown = 0;
   for (const d of out) {
+    if (++shown > 12) break;
     console.log(`  ${d.ticker.padEnd(6)} ${d.form.padEnd(5)} ${d.section.padEnd(13)} ${d.from.date} -> ${d.to.date}   +${String(d.addedCount).padStart(3)} new  -${String(d.removedCount).padStart(3)} gone  ~${String(d.modifiedCount).padStart(3)} reworded  =${String(d.restatedCount).padStart(3)} refigured`);
   }
 }

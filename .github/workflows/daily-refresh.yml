@@ -23,7 +23,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     outputs:
       changed: ${{ steps.commit.outputs.changed }}
     env:
@@ -47,12 +47,18 @@ jobs:
             *) echo "::error::SEC_USER_AGENT has no email address in it; SEC will return 403."; exit 1 ;;
           esac
 
+      - name: Refresh the S&P 500 constituent list
+        run: node scripts/fetch-universe.cjs
+
       - name: Index filings
         run: node scripts/fetch-filings.cjs
 
-      # The raw filing cache is not committed, so this re-downloads roughly 75
-      # documents each run. That is the slow step; everything after it is local.
+      # Nothing is cached between runs, so this re-downloads every document. Pair
+      # mode fetches only the two filings a single comparison needs — roughly
+      # 1,000 documents instead of the 3,000 a full sweep would pull.
       - name: Extract sections
+        env:
+          PAIR_MODE: '1'
         run: node scripts/extract-sections.cjs
 
       - name: Diff sections against the prior filing
@@ -72,23 +78,23 @@ jobs:
         run: node scripts/fetch-consensus.cjs
 
       - name: Assemble the page payload
-        run: node scripts/build-mock-payload.cjs
+        run: node scripts/build-payload.cjs
 
       - name: Commit if anything changed
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data/; then
+          if git diff --quiet -- data/ && git diff --quiet --cached -- data/; then
             echo "Nothing changed today."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
           SUMMARY=$(node -e "
-            const p=require('./data/mock-payload.json');
-            console.log(p.totals.filings+' filings, '+p.totals.comparisons+' comparisons, '
-              +p.companies.filter(c=>c.revenueQ.length).length+' with quarterly figures');
+            const p=require('./data/payload.json');
+            console.log(p.totals.companies+' companies, '+p.totals.withFinancials+' with financials, '
+              +p.totals.comparisons+' comparisons');
           ")
           git add data/
           git commit -m "Daily refresh: $SUMMARY"

@@ -10,8 +10,9 @@
     "financials": "node scripts/fetch-financials.cjs",
     "prices": "node scripts/fetch-prices.cjs",
     "consensus": "node scripts/fetch-consensus.cjs",
-    "payload": "node scripts/build-mock-payload.cjs",
+    "payload": "node scripts/build-payload.cjs",
     "refresh": "npm run filings && npm run sections && npm run diffs && npm run financials && npm run prices && npm run consensus && npm run payload",
-    "build": "node scripts/build-site.cjs"
+    "build": "node scripts/build-site.cjs",
+    "universe": "node scripts/fetch-universe.cjs"
   }
 }
