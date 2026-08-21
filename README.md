@@ -1,3 +1,4 @@
+
 # Finance App — Disclosure Drift
 
 Tracks what AI-exposed companies **report**, how their **filed language** changes, and what the **market** does about it. All data comes from primary sources: SEC EDGAR and XBRL, Yahoo daily closes, and Finnhub for analyst ratings.
@@ -62,3 +63,7 @@ docs/          design exploration, not part of the build
 ```
 
 `npm run build` inlines the dataset into the template and writes `dist/index.html` — one self-contained file, nothing fetched at runtime.
+
+---
+
+Built from the claude-code-starter template: the workflow commands in `.claude/commands/`, plus `CLAUDE.md`, `BACKLOG.md` and `JOURNAL.md`, come from there.

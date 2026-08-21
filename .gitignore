@@ -1,8 +1,15 @@
-# Credentials — the SEC contact email lives here, keep it out of the public repo
+# Credentials — SEC contact email and Finnhub key live here
 .env
 *.env.local
 
-# Node
+# Generated files — never edit directly
+*.local.html
+
+# Session data
+payloads/
+transcripts/
+
+# Node / npm
 node_modules/
 
 # Build output
@@ -16,5 +23,8 @@ data/raw-xbrl/
 # Scratch output from design exploration
 data/design-slice.json
 
+# Plans — TRACKED on purpose: they are part of the rebuild spec (see JOURNAL.md)
+
 # Claude local settings
 .claude/settings.local.json
+.claude/last_anchor_check
