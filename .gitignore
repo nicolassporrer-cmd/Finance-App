@@ -29,6 +29,7 @@ data/financials.json
 data/prices.json
 data/language.json
 data/diffs.json
+data/profiles.json
 
 # Scratch output from design exploration
 data/design-slice.json

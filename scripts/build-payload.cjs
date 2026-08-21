@@ -21,6 +21,7 @@ const px = read('prices.json', { companies: [], range: '2y', failures: [] });
 const diffs = read('diffs.json', { diffs: [] }).diffs;
 const lang = read('language.json', { records: [], terms: [] });
 const consensus = read('consensus.json', { available: false, companies: [] });
+const profiles = read('profiles.json', { profiles: [] });
 
 const clip = (s, n) => {
   s = String(s).replace(/\s+/g, ' ').trim();
@@ -63,6 +64,7 @@ const trim = p => p && ({ end: p.end, label: p.label, val: p.val,
 const finBy = new Map(fin.companies.map(c => [c.ticker, c]));
 const pxBy = new Map(px.companies.map(c => [c.ticker, c]));
 const consBy = new Map((consensus.companies || []).map(c => [c.ticker, c]));
+const profBy = new Map((profiles.profiles || []).map(p => [p.ticker, p]));
 const diffBy = new Map();
 for (const d of diffs) {
   if (!diffBy.has(d.ticker)) diffBy.set(d.ticker, []);
@@ -187,6 +189,7 @@ const companies = idx.companies.map(co => {
       return r ? { form: r.form, date: r.filingDate, words: r.words, terms: r.terms } : null;
     })(),
 
+    profile: profBy.get(co.ticker) || null,
     latestFiling: co.latestFiling,
     latestPeriodic: co.latestPeriodic,
     filingCount: Object.values(co.filingCounts || {}).reduce((a, b) => a + b, 0),
@@ -206,6 +209,7 @@ const payload = {
     withPrices: companies.filter(c => c.price).length,
     withConsensus: companies.filter(c => c.consensus).length,
     withDiffs: companies.filter(c => c.diffs.length).length,
+    withProfiles: companies.filter(c => c.profile).length,
     allForms: idx.companies.reduce((n, c) => n + (Object.values(c.filingCounts || {}).reduce((a, b) => a + b, 0)), 0),
     periodicIndexed: idx.companies.reduce((n, c) => n + c.periodic.length, 0),
     thinHistory: companies.filter(c => c.thinHistory).length,

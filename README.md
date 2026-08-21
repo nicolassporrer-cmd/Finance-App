@@ -1,5 +1,5 @@
 
-# Finance App — Disclosure Drift
+# Finance App — Financial Monitoring
 
 Tracks what every **S&P 500** company **reports**, how their **filed language** changes, and what the **market** does about it. All data comes from primary sources: SEC EDGAR and XBRL, Yahoo daily closes, and Finnhub for analyst ratings.
 

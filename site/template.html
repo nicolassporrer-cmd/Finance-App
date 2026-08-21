@@ -1,4 +1,4 @@
-<title>Disclosure Drift</title>
+<title>Financial Monitoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -97,6 +97,23 @@ table.board td.z{color:var(--dim);opacity:.65}
 .stamp{display:inline-block;border:2px solid var(--oxblood);color:var(--oxblood);
   font-family:Archivo,sans-serif;font-weight:700;font-size:10px;letter-spacing:.15em;
   text-transform:uppercase;padding:3px 8px;transform:rotate(-1.4deg);margin-top:10px}
+
+/* The business description. Set as a quoted passage rather than as interface
+   text, because every word of it is the company's own — the styling should say
+   "this is quoted", not "this is our summary". */
+.profile{margin-top:16px;border-top:1px solid var(--ink);padding-top:12px}
+.profile h4{font-family:Archivo,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin:0 0 9px;color:var(--ink-mut)}
+.profile .q{font-size:13px;line-height:1.72;padding-left:14px;border-left:2px solid var(--forest);
+  margin-bottom:9px;color:var(--ink)}
+.profile .sub{margin-top:12px}
+.profile .sub .lbl2{font-family:Archivo,sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-mut);margin-bottom:5px}
+.profile .sub .q{font-size:12px;line-height:1.65;border-left-color:var(--hair);color:var(--ink-mut)}
+.profile .src{font-family:Archivo,sans-serif;font-size:9.5px;color:var(--ink-mut);margin-top:10px;
+  padding-top:7px;border-top:1px solid var(--hair)}
+.profile .src a{color:var(--oxblood)}
+.profile .none{font-size:12px}
 
 .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
   border:1px solid var(--ink);border-right:0;margin:16px 0 0}
@@ -206,7 +223,7 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
 
   <div class="masthead">
     <div>
-      <h1>Disclosure Drift</h1>
+      <h1>Financial Monitoring</h1>
       <p>Every S&amp;P 500 company, ranked by revenue and grouped by ticker. Pick one and the three sheets below read it end to end &mdash; what it reports, how its filed language changed, and what the market did about it.</p>
     </div>
     <div class="meta" id="mast-meta"></div>
@@ -236,6 +253,7 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       <li><b>Dual-class listings are collapsed in the ranking only.</b> Alphabet sits in the index as both GOOG and GOOGL with identical figures; the top twenty counts it once, by CIK. Both still appear under their letters.</li>
       <li><b>Analyst consensus is ratings only, and shallow.</b> Finnhub's free tier returned recommendation counts for all 503 companies, but price targets sit behind its paid tier and return 403, so no target range is shown anywhere. It also returns only four monthly snapshots, so the mix chart is a short window, not a long trend.</li>
       <li><b>Price reaction is not attribution.</b> It is the move from the last close before the filing to the first close after it. The earnings release, guidance and market-wide moves land in the same window.</li>
+      <li><b>Company descriptions are quoted, never written.</b> Every sentence under "What this company does" comes verbatim from that company's own Item 1 "Business" in its most recent 10-K, with the filing linked. A convincing one-line summary of what a company does is trivial to generate and impossible for a reader to tell apart from a sourced one, so none is generated: a company whose Item 1 cannot be parsed shows an explicit blank instead. The selection is automatic, so a few companies open on a less useful sentence than a human would have picked.</li>
       <li><b>The dynamics panel is a set of measurements, not a recommendation.</b> Each line compares two filed figures and states which two. It is not investment advice and does not attempt a verdict.</li>
     </ul>
   </div>
@@ -596,6 +614,31 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       '</div>';
   }
 
+  // Every sentence here is quoted verbatim from the company's own Item 1
+  // "Business". None of it is written by the app, which is why it carries the
+  // filing it came from — and why a company with no parsable Item 1 gets an
+  // explicit absence rather than a plausible sentence someone made up.
+  function profileBlock(c){
+    var p=c.profile;
+    if(!p){
+      return '<div class="profile"><h4>What this company does</h4>'+
+        '<p class="none">No description shown. Nothing is written here that is not quoted from the company\'s own '+
+        'annual report, and this company\'s Item 1 could not be parsed &mdash; so the space is left empty rather '+
+        'than filled with a summary from elsewhere.</p></div>';
+    }
+    var q=function(s){ return '<div class="q">'+esc(s)+'</div>'; };
+    var sub=function(label, lines){
+      if(!lines || !lines.length) return '';
+      return '<div class="sub"><div class="lbl2">'+label+'</div>'+lines.map(q).join('')+'</div>';
+    };
+    return '<div class="profile"><h4>What this company does &mdash; in its own words</h4>'+
+      p.summary.map(q).join('')+
+      sub('How it says it earns', p.revenueModel)+
+      sub('What it says it offers', p.products)+
+      '<div class="src">Quoted from Item 1, Business &middot; '+esc(p.source.form)+' filed '+p.source.date+
+      ' &middot; <a href="'+p.source.url+'" target="_blank" rel="noopener">read the filing &#8599;</a></div></div>';
+  }
+
   function render(ticker, scroll){
     var c=D.companies.filter(function(x){return x.ticker===ticker;})[0];
     var h=c.headline;
@@ -640,7 +683,7 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
 
     var s1='<div class="sheet"><div class="in">'+
       sheetHead(c,'01 &mdash; FINANCIALS','Reported figures','Periods: '+per+'<br>Currency as filed: '+(c.unit||'—'))+
-      flagLine+'<div class="figs">'+figs+'</div>'+
+      flagLine+profileBlock(c)+'<div class="figs">'+figs+'</div>'+
       '<div class="block"><h4>Exhibit A &mdash; Revenue by '+(c.revenueQ.length?'fiscal quarter':'fiscal year')+
         ', growth year over year'+(c.revenueQ.length?' &nbsp;(dashed outline = reconstructed Q4)':'')+'</h4>'+
         barsChart(revSeries,c.unit)+'</div>'+

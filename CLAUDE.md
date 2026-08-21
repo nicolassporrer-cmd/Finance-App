@@ -1,4 +1,4 @@
-# Finance App (Disclosure Drift) — Project Context
+# Finance App (Financial Monitoring) — Project Context
 
 ## What this is
 Tracks what AI-exposed companies report, how their filed language changes between filings, and what the market does about it — for Nicolas, reading it himself.
@@ -37,7 +37,8 @@ Built on:
 | `scripts/lib/sections.cjs` | Locates Risk Factors / MD&A / Business by title |
 | `scripts/lib/fiscal.cjs` | Fiscal period labels and Q4 reconstruction |
 | `scripts/fetch-*.cjs` | The pipeline stages |
-| `scripts/build-mock-payload.cjs` | Assembles the single JSON the page reads |
+| `scripts/build-payload.cjs` | Assembles the single JSON the page reads |
+| `scripts/fetch-profiles.cjs` | Business descriptions quoted from 10-K Item 1 |
 | `scripts/build-site.cjs` | Inlines the payload into the template → `dist/index.html` |
 | `site/template.html` | The page, with a `__PAYLOAD__` placeholder |
 | `docs/` | Design exploration, not part of the build |
@@ -71,7 +72,8 @@ Built on:
 5. **Normalize at the boundary.** Filing HTML becomes text once, XBRL becomes typed series once. Downstream code never re-parses.
 6. **Graceful degradation.** Missing data renders an explicit empty state naming *why* it is missing, never a silent gap and never a substituted value.
 7. **No hardcoded credentials.** `SEC_USER_AGENT` and `FINNHUB_API_KEY` live in `.env` (gitignored) and repo secrets.
-8. **Derived values are labelled derived.** EBITDA, free cash flow and reconstructed Q4s are not filed figures and must never be presented as if they were.
+8. **Prose about a company is quoted, never authored.** A plausible description of what a company does is trivial to generate and indistinguishable from a sourced one. Quote Item 1 and cite the filing, or show nothing.
+9. **Derived values are labelled derived.** EBITDA, free cash flow and reconstructed Q4s are not filed figures and must never be presented as if they were.
 
 ---
 
@@ -119,7 +121,8 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and publ
 | `financials.json` | fetch-financials | revenue, margins, EBITDA, FCF, quarterly and annual |
 | `prices.json` | fetch-prices | daily closes plus the move around each filing |
 | `consensus.json` | fetch-consensus | analyst ratings; empty file when no key |
-| `mock-payload.json` | build-mock-payload | the single object the page reads |
+| `profiles.json` | fetch-profiles | business description quoted from each 10-K Item 1 |
+| `payload.json` | build-payload | the single object the page reads |
 
 `data/raw/` and `data/raw-xbrl/` are gitignored source caches (~250 MB combined).
 

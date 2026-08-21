@@ -64,6 +64,11 @@ jobs:
       - name: Diff sections against the prior filing
         run: node scripts/diff-sections.cjs
 
+      # Business descriptions, quoted from each company's own Item 1. Needs the
+      # most recent annual report, which pair mode does not always fetch.
+      - name: Build company profiles from 10-K Item 1
+        run: node scripts/fetch-profiles.cjs
+
       - name: Fetch financials from XBRL
         run: node scripts/fetch-financials.cjs
 
