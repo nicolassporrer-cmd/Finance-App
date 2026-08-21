@@ -1,0 +1,20 @@
+# Credentials — the SEC contact email lives here, keep it out of the public repo
+.env
+*.env.local
+
+# Node
+node_modules/
+
+# Build output
+dist/
+
+# Raw source payloads — large, re-fetchable, no reason to version them.
+# raw/ is ~200 MB of filing HTML; raw-xbrl/ is ~44 MB of XBRL company facts.
+data/raw/
+data/raw-xbrl/
+
+# Scratch output from design exploration
+data/design-slice.json
+
+# Claude local settings
+.claude/settings.local.json

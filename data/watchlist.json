@@ -1,0 +1,20 @@
+{
+  "comment": "Companies tracked for AI-related filing language. Edit freely; the pipeline resolves tickers to SEC CIKs automatically.",
+  "tickers": [
+    { "ticker": "NVDA",  "note": "AI compute" },
+    { "ticker": "MSFT",  "note": "hyperscaler / OpenAI" },
+    { "ticker": "GOOGL", "note": "hyperscaler / Gemini" },
+    { "ticker": "META",  "note": "open-weights / Llama" },
+    { "ticker": "AMZN",  "note": "hyperscaler / Anthropic" },
+    { "ticker": "AAPL",  "note": "on-device AI" },
+    { "ticker": "AMD",   "note": "AI compute" },
+    { "ticker": "AVGO",  "note": "custom accelerators" },
+    { "ticker": "TSM",   "note": "foundry" },
+    { "ticker": "ORCL",  "note": "AI cloud capacity" },
+    { "ticker": "PLTR",  "note": "applied / agentic" },
+    { "ticker": "CRM",   "note": "agentic enterprise" },
+    { "ticker": "SNOW",  "note": "data platform" },
+    { "ticker": "MDB",   "note": "vector / data platform" },
+    { "ticker": "ASML",  "note": "lithography" }
+  ]
+}

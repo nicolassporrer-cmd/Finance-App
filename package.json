@@ -1,0 +1,17 @@
+{
+  "name": "finance-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Tracks SEC filings, financials, share prices and analyst consensus for AI-exposed companies",
+  "scripts": {
+    "filings": "node scripts/fetch-filings.cjs",
+    "sections": "node scripts/extract-sections.cjs",
+    "diffs": "node scripts/diff-sections.cjs",
+    "financials": "node scripts/fetch-financials.cjs",
+    "prices": "node scripts/fetch-prices.cjs",
+    "consensus": "node scripts/fetch-consensus.cjs",
+    "payload": "node scripts/build-mock-payload.cjs",
+    "refresh": "npm run filings && npm run sections && npm run diffs && npm run financials && npm run prices && npm run consensus && npm run payload",
+    "build": "node scripts/build-site.cjs"
+  }
+}

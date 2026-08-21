@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # Callable, so the daily refresh can publish its own commit. A push made with
+  # the default GITHUB_TOKEN does NOT trigger other workflows — GitHub blocks that
+  # to prevent recursion — so without this the refreshed data never reaches Pages.
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Always publish the tip of main, never the commit that triggered the run.
+      # The daily refresh commits AFTER its run starts, so a default checkout takes
+      # the pre-refresh SHA and deploys yesterday's data — a green run that quietly
+      # publishes stale content.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build the site
+        run: node scripts/build-site.cjs
+
+      - name: Fail if the page is missing or empty
+        run: |
+          test -s dist/index.html || { echo "dist/index.html missing or empty"; exit 1; }
+          echo "page: $(wc -c < dist/index.html) bytes"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

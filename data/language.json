@@ -1,0 +1,3650 @@
+{
+  "generatedAt": "2026-08-21T15:31:02.944Z",
+  "terms": [
+    "artificial intelligence",
+    "generative ai",
+    "agentic",
+    "ai agent",
+    "machine learning",
+    "large language model",
+    "foundation model",
+    "reasoning model",
+    "neural network",
+    "inference",
+    "training",
+    "data center",
+    "gpu",
+    "accelerator",
+    "accelerated computing",
+    "export control",
+    "capital expenditure",
+    "compute capacity",
+    "copilot",
+    "chatbot",
+    "hallucinat"
+  ],
+  "records": [
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-Q",
+      "filingDate": "2026-08-05",
+      "reportDate": "2026-06-27",
+      "accession": "0000002488-26-000123",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm",
+      "words": 34850,
+      "chars": 246743,
+      "sections": {
+        "Risk Factors": {
+          "chars": 139923,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 6,
+            "machine learning": 1,
+            "training": 2,
+            "data center": 15,
+            "gpu": 10,
+            "accelerator": 2,
+            "accelerated computing": 1,
+            "export control": 15,
+            "compute capacity": 1
+          }
+        },
+        "MD&A": {
+          "chars": 30604,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 21,
+            "gpu": 10,
+            "accelerator": 1,
+            "export control": 3,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 6,
+        "machine learning": 1,
+        "training": 2,
+        "data center": 56,
+        "gpu": 24,
+        "accelerator": 5,
+        "accelerated computing": 1,
+        "export control": 18,
+        "capital expenditure": 2,
+        "compute capacity": 4
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-08-04",
+      "reportDate": "2026-06-30",
+      "accession": "0001321655-26-000041",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000041/pltr-20260630.htm",
+      "words": 64402,
+      "chars": 445211,
+      "sections": {
+        "Risk Factors": {
+          "chars": 305057,
+          "terms": {
+            "artificial intelligence": 3,
+            "agentic": 3,
+            "machine learning": 5,
+            "inference": 1,
+            "training": 11,
+            "data center": 2,
+            "export control": 7,
+            "capital expenditure": 1,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 47114,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 2,
+            "large language model": 1,
+            "training": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "generative ai": 2,
+        "agentic": 3,
+        "machine learning": 5,
+        "large language model": 1,
+        "inference": 1,
+        "training": 12,
+        "data center": 2,
+        "export control": 7,
+        "capital expenditure": 1,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-Q",
+      "filingDate": "2026-07-31",
+      "reportDate": "2026-06-30",
+      "accession": "0001018724-26-000026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+      "words": 29138,
+      "chars": 220260,
+      "sections": {
+        "Risk Factors": {
+          "chars": 60992,
+          "terms": {
+            "artificial intelligence": 16,
+            "machine learning": 6,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 41296,
+          "terms": {
+            "artificial intelligence": 3,
+            "machine learning": 1,
+            "data center": 2,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 19,
+        "machine learning": 7,
+        "data center": 11,
+        "capital expenditure": 4,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-07-31",
+      "reportDate": "2026-06-27",
+      "accession": "0000320193-26-000020",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm",
+      "words": 12682,
+      "chars": 93847,
+      "sections": {
+        "Risk Factors": {
+          "chars": 19079,
+          "terms": {
+            "artificial intelligence": 3,
+            "machine learning": 1,
+            "data center": 1,
+            "compute capacity": 1
+          }
+        },
+        "MD&A": {
+          "chars": 21522,
+          "terms": {
+            "artificial intelligence": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "machine learning": 1,
+        "data center": 1,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-07-30",
+      "reportDate": "2026-06-30",
+      "accession": "0001628280-26-050705",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm",
+      "words": 61713,
+      "chars": 416483,
+      "sections": {
+        "Risk Factors": {
+          "chars": 198862,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 4,
+            "agentic": 1,
+            "ai agent": 5,
+            "machine learning": 6,
+            "training": 3,
+            "data center": 8,
+            "export control": 7,
+            "capital expenditure": 2,
+            "chatbot": 1
+          }
+        },
+        "MD&A": {
+          "chars": 51101,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "data center": 13,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 9,
+        "generative ai": 8,
+        "agentic": 1,
+        "ai agent": 5,
+        "machine learning": 10,
+        "training": 5,
+        "data center": 37,
+        "export control": 7,
+        "capital expenditure": 6,
+        "chatbot": 5
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-K",
+      "filingDate": "2026-07-29",
+      "reportDate": "2026-06-30",
+      "accession": "0001193125-26-323660",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "words": 48181,
+      "chars": 354976,
+      "sections": {
+        "Business": {
+          "chars": 2183,
+          "terms": {
+            "artificial intelligence": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 4811,
+          "terms": {
+            "artificial intelligence": 1
+          }
+        },
+        "MD&A": {
+          "chars": 3568,
+          "terms": {
+            "artificial intelligence": 2,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "generative ai": 1,
+        "agentic": 5,
+        "machine learning": 1,
+        "inference": 2,
+        "training": 16,
+        "data center": 35,
+        "export control": 3,
+        "capital expenditure": 4,
+        "compute capacity": 7,
+        "copilot": 17
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-07-23",
+      "reportDate": "2026-06-30",
+      "accession": "0001652044-26-000071",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "words": 30724,
+      "chars": 244995,
+      "sections": {
+        "Risk Factors": {
+          "chars": 16572,
+          "terms": {
+            "training": 1,
+            "data center": 1,
+            "compute capacity": 1
+          }
+        },
+        "MD&A": {
+          "chars": 51172,
+          "terms": {
+            "data center": 6,
+            "capital expenditure": 7
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "training": 1,
+        "data center": 17,
+        "capital expenditure": 10,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "form": "10-K",
+      "filingDate": "2026-06-22",
+      "reportDate": "2026-05-31",
+      "accession": "0001193125-26-277521",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm",
+      "words": 63009,
+      "chars": 458183,
+      "sections": {
+        "Business": {
+          "chars": 56182,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 5,
+            "agentic": 1,
+            "ai agent": 1,
+            "machine learning": 6,
+            "large language model": 1,
+            "inference": 1,
+            "training": 3,
+            "data center": 15,
+            "gpu": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 101528,
+          "terms": {
+            "generative ai": 2,
+            "agentic": 1,
+            "machine learning": 2,
+            "training": 2,
+            "data center": 29,
+            "gpu": 1,
+            "accelerator": 1,
+            "export control": 6,
+            "capital expenditure": 4
+          }
+        },
+        "MD&A": {
+          "chars": 65238,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "data center": 6,
+            "capital expenditure": 12
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 8,
+        "agentic": 2,
+        "ai agent": 1,
+        "machine learning": 8,
+        "large language model": 1,
+        "inference": 1,
+        "training": 5,
+        "data center": 56,
+        "gpu": 2,
+        "accelerator": 1,
+        "export control": 6,
+        "capital expenditure": 26
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-06-09",
+      "reportDate": "2026-05-03",
+      "accession": "0001730168-26-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/avgo-20260503.htm",
+      "words": 28895,
+      "chars": 206128,
+      "sections": {
+        "Risk Factors": {
+          "chars": 93422,
+          "terms": {
+            "data center": 12,
+            "accelerator": 7,
+            "capital expenditure": 2,
+            "compute capacity": 5
+          }
+        },
+        "MD&A": {
+          "chars": 27595,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1,
+            "accelerator": 3,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "data center": 15,
+        "accelerator": 13,
+        "capital expenditure": 6,
+        "compute capacity": 7
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-05-29",
+      "reportDate": "2026-04-30",
+      "accession": "0001640147-26-000030",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014726000030/snow-20260430.htm",
+      "words": 57325,
+      "chars": 408636,
+      "sections": {
+        "Risk Factors": {
+          "chars": 165461,
+          "terms": {
+            "artificial intelligence": 4,
+            "generative ai": 4,
+            "ai agent": 1,
+            "machine learning": 2,
+            "large language model": 3,
+            "training": 9,
+            "data center": 2,
+            "gpu": 2,
+            "export control": 2,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 80159,
+          "terms": {
+            "artificial intelligence": 1,
+            "ai agent": 1,
+            "machine learning": 2,
+            "inference": 6,
+            "training": 3,
+            "gpu": 6,
+            "capital expenditure": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 7,
+        "generative ai": 4,
+        "ai agent": 3,
+        "machine learning": 5,
+        "large language model": 5,
+        "inference": 6,
+        "training": 12,
+        "data center": 2,
+        "gpu": 8,
+        "export control": 2,
+        "capital expenditure": 5,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB, Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-05-29",
+      "reportDate": "2026-04-30",
+      "accession": "0001628280-26-039150",
+      "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026039150/mdb-20260430.htm",
+      "words": 47602,
+      "chars": 323480,
+      "sections": {
+        "Risk Factors": {
+          "chars": 201448,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 7,
+            "agentic": 2,
+            "machine learning": 2,
+            "inference": 1,
+            "training": 9,
+            "data center": 1,
+            "export control": 5,
+            "capital expenditure": 4,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 41399,
+          "terms": {
+            "generative ai": 1,
+            "training": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 8,
+        "agentic": 2,
+        "machine learning": 2,
+        "inference": 1,
+        "training": 14,
+        "data center": 1,
+        "export control": 5,
+        "capital expenditure": 4,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-05-28",
+      "reportDate": "2026-04-30",
+      "accession": "0001108524-26-000127",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000127/crm-20260430.htm",
+      "words": 43100,
+      "chars": 310623,
+      "sections": {
+        "Risk Factors": {
+          "chars": 117537,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 4,
+            "agentic": 4,
+            "ai agent": 3,
+            "large language model": 2,
+            "training": 4,
+            "data center": 13,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 47027,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "agentic": 5,
+            "ai agent": 1,
+            "data center": 3,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "generative ai": 5,
+        "agentic": 10,
+        "ai agent": 5,
+        "large language model": 2,
+        "training": 6,
+        "data center": 19,
+        "export control": 2,
+        "capital expenditure": 7
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "form": "10-Q",
+      "filingDate": "2026-05-20",
+      "reportDate": "2026-04-26",
+      "accession": "0001045810-26-000052",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+      "words": 20820,
+      "chars": 155594,
+      "sections": {
+        "Risk Factors": {
+          "chars": 42998,
+          "terms": {
+            "generative ai": 1,
+            "large language model": 1,
+            "foundation model": 7,
+            "training": 2,
+            "data center": 23,
+            "gpu": 21,
+            "accelerator": 1,
+            "accelerated computing": 5,
+            "export control": 38
+          }
+        },
+        "MD&A": {
+          "chars": 28825,
+          "terms": {
+            "agentic": 1,
+            "foundation model": 1,
+            "data center": 11,
+            "gpu": 1,
+            "accelerated computing": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "generative ai": 1,
+        "agentic": 1,
+        "large language model": 1,
+        "foundation model": 8,
+        "training": 2,
+        "data center": 41,
+        "gpu": 28,
+        "accelerator": 1,
+        "accelerated computing": 9,
+        "export control": 38
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-Q",
+      "filingDate": "2026-05-06",
+      "reportDate": "2026-03-28",
+      "accession": "0000002488-26-000076",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
+      "words": 32820,
+      "chars": 231163,
+      "sections": {
+        "Risk Factors": {
+          "chars": 136629,
+          "terms": {
+            "generative ai": 6,
+            "machine learning": 1,
+            "training": 2,
+            "data center": 14,
+            "gpu": 10,
+            "accelerator": 2,
+            "accelerated computing": 1,
+            "export control": 11
+          }
+        },
+        "MD&A": {
+          "chars": 24639,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 11,
+            "gpu": 8,
+            "accelerator": 1,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 6,
+        "machine learning": 1,
+        "training": 2,
+        "data center": 42,
+        "gpu": 23,
+        "accelerator": 5,
+        "accelerated computing": 1,
+        "export control": 11,
+        "capital expenditure": 2
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-05-05",
+      "reportDate": "2026-03-31",
+      "accession": "0001321655-26-000028",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000028/pltr-20260331.htm",
+      "words": 63081,
+      "chars": 433284,
+      "sections": {
+        "Risk Factors": {
+          "chars": 303783,
+          "terms": {
+            "artificial intelligence": 3,
+            "agentic": 3,
+            "machine learning": 5,
+            "inference": 1,
+            "training": 11,
+            "data center": 2,
+            "export control": 7,
+            "capital expenditure": 1,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 41589,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 2,
+            "large language model": 1,
+            "training": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "generative ai": 2,
+        "agentic": 3,
+        "machine learning": 5,
+        "large language model": 1,
+        "inference": 1,
+        "training": 12,
+        "data center": 2,
+        "export control": 7,
+        "capital expenditure": 1,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-05-01",
+      "reportDate": "2026-03-28",
+      "accession": "0000320193-26-000013",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+      "words": 12898,
+      "chars": 95586,
+      "sections": {
+        "Risk Factors": {
+          "chars": 22091,
+          "terms": {
+            "artificial intelligence": 11,
+            "export control": 1
+          }
+        },
+        "MD&A": {
+          "chars": 21876,
+          "terms": {}
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 11,
+        "export control": 1
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-04-30",
+      "reportDate": "2026-03-31",
+      "accession": "0001652044-26-000048",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+      "words": 23027,
+      "chars": 182652,
+      "sections": {
+        "Risk Factors": {
+          "chars": 6163,
+          "terms": {
+            "data center": 1,
+            "compute capacity": 1
+          }
+        },
+        "MD&A": {
+          "chars": 46894,
+          "terms": {
+            "data center": 8,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "data center": 20,
+        "capital expenditure": 5,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-04-30",
+      "reportDate": "2026-03-31",
+      "accession": "0001628280-26-028526",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+      "words": 59714,
+      "chars": 399610,
+      "sections": {
+        "Risk Factors": {
+          "chars": 197829,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 4,
+            "agentic": 1,
+            "ai agent": 5,
+            "machine learning": 6,
+            "training": 3,
+            "data center": 6,
+            "export control": 7,
+            "capital expenditure": 1,
+            "chatbot": 1
+          }
+        },
+        "MD&A": {
+          "chars": 47336,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "data center": 7,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 9,
+        "generative ai": 8,
+        "agentic": 1,
+        "ai agent": 5,
+        "machine learning": 10,
+        "training": 5,
+        "data center": 25,
+        "export control": 7,
+        "capital expenditure": 5,
+        "chatbot": 3
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-Q",
+      "filingDate": "2026-04-30",
+      "reportDate": "2026-03-31",
+      "accession": "0001018724-26-000014",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+      "words": 26459,
+      "chars": 196876,
+      "sections": {
+        "Risk Factors": {
+          "chars": 60905,
+          "terms": {
+            "artificial intelligence": 16,
+            "machine learning": 6,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 36729,
+          "terms": {
+            "artificial intelligence": 3,
+            "machine learning": 1,
+            "data center": 3,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 19,
+        "machine learning": 7,
+        "data center": 12,
+        "capital expenditure": 4,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-Q",
+      "filingDate": "2026-04-29",
+      "reportDate": "2026-03-31",
+      "accession": "0001193125-26-191507",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+      "words": 31264,
+      "chars": 235573,
+      "sections": {
+        "Risk Factors": {
+          "chars": 3558,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 3753,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "agentic": 1,
+        "machine learning": 1,
+        "training": 8,
+        "data center": 16,
+        "export control": 3,
+        "capital expenditure": 3,
+        "compute capacity": 12,
+        "copilot": 14
+      }
+    },
+    {
+      "ticker": "TSM",
+      "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+      "form": "20-F",
+      "filingDate": "2026-04-16",
+      "reportDate": "2025-12-31",
+      "accession": "0001628280-26-025362",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "words": 83697,
+      "chars": 659347,
+      "sections": {},
+      "tracked": [],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "training": 3,
+        "data center": 2,
+        "gpu": 2,
+        "accelerator": 2,
+        "export control": 16,
+        "capital expenditure": 16
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "form": "10-K",
+      "filingDate": "2026-03-20",
+      "reportDate": "2026-01-31",
+      "accession": "0001640147-26-000008",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014726000008/snow-20260131.htm",
+      "words": 82228,
+      "chars": 587991,
+      "sections": {
+        "Business": {
+          "chars": 52030,
+          "terms": {
+            "artificial intelligence": 1,
+            "agentic": 1,
+            "ai agent": 5,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1,
+            "data center": 2,
+            "gpu": 1,
+            "capital expenditure": 1,
+            "compute capacity": 3
+          }
+        },
+        "Risk Factors": {
+          "chars": 165280,
+          "terms": {
+            "artificial intelligence": 4,
+            "generative ai": 4,
+            "ai agent": 1,
+            "machine learning": 2,
+            "large language model": 3,
+            "training": 9,
+            "data center": 1,
+            "gpu": 2,
+            "export control": 2,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 81093,
+          "terms": {
+            "artificial intelligence": 1,
+            "machine learning": 2,
+            "inference": 4,
+            "training": 3,
+            "gpu": 4,
+            "capital expenditure": 1
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 8,
+        "generative ai": 4,
+        "agentic": 1,
+        "ai agent": 6,
+        "machine learning": 6,
+        "large language model": 6,
+        "inference": 4,
+        "training": 17,
+        "data center": 3,
+        "gpu": 7,
+        "export control": 2,
+        "capital expenditure": 8,
+        "compute capacity": 3,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-03-11",
+      "reportDate": "2026-02-01",
+      "accession": "0001730168-26-000016",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/avgo-20260201.htm",
+      "words": 27225,
+      "chars": 193362,
+      "sections": {
+        "Risk Factors": {
+          "chars": 92092,
+          "terms": {
+            "data center": 12,
+            "accelerator": 5,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 23886,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1,
+            "accelerator": 2,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "data center": 15,
+        "accelerator": 7,
+        "capital expenditure": 6
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "form": "10-Q",
+      "filingDate": "2026-03-11",
+      "reportDate": "2026-02-28",
+      "accession": "0001193125-26-101045",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526101045/orcl-20260228.htm",
+      "words": 25348,
+      "chars": 183491,
+      "sections": {
+        "Risk Factors": {
+          "chars": 4020,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 77861,
+          "terms": {
+            "data center": 9,
+            "capital expenditure": 11
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "data center": 12,
+        "capital expenditure": 18
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB, Inc.",
+      "form": "10-K",
+      "filingDate": "2026-03-11",
+      "reportDate": "2026-01-31",
+      "accession": "0001628280-26-016799",
+      "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+      "words": 71213,
+      "chars": 490363,
+      "sections": {
+        "Business": {
+          "chars": 52334,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 6,
+            "foundation model": 3,
+            "training": 4,
+            "data center": 1,
+            "hallucinat": 2
+          }
+        },
+        "Risk Factors": {
+          "chars": 196093,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 7,
+            "agentic": 2,
+            "machine learning": 2,
+            "inference": 1,
+            "training": 9,
+            "data center": 1,
+            "export control": 5,
+            "capital expenditure": 4,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 46248,
+          "terms": {
+            "training": 5
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 13,
+        "agentic": 2,
+        "machine learning": 2,
+        "foundation model": 3,
+        "inference": 1,
+        "training": 21,
+        "data center": 2,
+        "export control": 5,
+        "capital expenditure": 4,
+        "hallucinat": 3
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "form": "10-K",
+      "filingDate": "2026-03-02",
+      "reportDate": "2026-01-31",
+      "accession": "0001108524-26-000060",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+      "words": 60729,
+      "chars": 435752,
+      "sections": {
+        "Business": {
+          "chars": 43642,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "agentic": 11,
+            "ai agent": 17,
+            "large language model": 2,
+            "data center": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 113224,
+          "terms": {
+            "artificial intelligence": 3,
+            "generative ai": 5,
+            "agentic": 3,
+            "ai agent": 1,
+            "large language model": 2,
+            "training": 1,
+            "data center": 13,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 54443,
+          "terms": {
+            "artificial intelligence": 2,
+            "agentic": 4,
+            "ai agent": 1,
+            "data center": 6,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 7,
+        "generative ai": 6,
+        "agentic": 18,
+        "ai agent": 20,
+        "large language model": 4,
+        "training": 7,
+        "data center": 26,
+        "export control": 2,
+        "capital expenditure": 7
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "form": "10-K",
+      "filingDate": "2026-02-25",
+      "reportDate": "2026-01-25",
+      "accession": "0001045810-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "words": 51188,
+      "chars": 358402,
+      "sections": {
+        "Business": {
+          "chars": 48224,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 3,
+            "agentic": 9,
+            "ai agent": 1,
+            "foundation model": 2,
+            "neural network": 5,
+            "inference": 3,
+            "training": 11,
+            "data center": 31,
+            "gpu": 41,
+            "accelerated computing": 14,
+            "export control": 8,
+            "capital expenditure": 2,
+            "chatbot": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 114734,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "foundation model": 6,
+            "training": 7,
+            "data center": 28,
+            "gpu": 20,
+            "accelerator": 1,
+            "accelerated computing": 6,
+            "export control": 38,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 34149,
+          "terms": {
+            "foundation model": 1,
+            "data center": 11,
+            "gpu": 1,
+            "accelerated computing": 5,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 4,
+        "agentic": 9,
+        "ai agent": 1,
+        "machine learning": 1,
+        "large language model": 1,
+        "foundation model": 9,
+        "neural network": 5,
+        "inference": 3,
+        "training": 19,
+        "data center": 82,
+        "gpu": 68,
+        "accelerator": 1,
+        "accelerated computing": 26,
+        "export control": 46,
+        "capital expenditure": 6,
+        "chatbot": 1
+      }
+    },
+    {
+      "ticker": "ASML",
+      "name": "ASML HOLDING NV",
+      "form": "20-F",
+      "filingDate": "2026-02-25",
+      "reportDate": "2025-12-31",
+      "accession": "0001628280-26-011378",
+      "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm",
+      "words": 199594,
+      "chars": 1365906,
+      "sections": {},
+      "tracked": [],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 10,
+        "generative ai": 5,
+        "ai agent": 1,
+        "machine learning": 1,
+        "training": 84,
+        "data center": 3,
+        "gpu": 6,
+        "export control": 27,
+        "capital expenditure": 30
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-K",
+      "filingDate": "2026-02-17",
+      "reportDate": "2025-12-31",
+      "accession": "0001321655-26-000011",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm",
+      "words": 81033,
+      "chars": 560549,
+      "sections": {
+        "Business": {
+          "chars": 35582,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 1,
+            "ai agent": 1,
+            "large language model": 1,
+            "training": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 298222,
+          "terms": {
+            "artificial intelligence": 2,
+            "agentic": 3,
+            "machine learning": 5,
+            "inference": 1,
+            "training": 11,
+            "data center": 1,
+            "export control": 7,
+            "capital expenditure": 1,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 52119,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "training": 2
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "generative ai": 3,
+        "agentic": 3,
+        "ai agent": 1,
+        "machine learning": 5,
+        "large language model": 1,
+        "inference": 1,
+        "training": 16,
+        "data center": 1,
+        "export control": 7,
+        "capital expenditure": 1,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-K",
+      "filingDate": "2026-02-06",
+      "reportDate": "2025-12-31",
+      "accession": "0001018724-26-000004",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "words": 42114,
+      "chars": 309819,
+      "sections": {
+        "Business": {
+          "chars": 13533,
+          "terms": {
+            "artificial intelligence": 5,
+            "machine learning": 2,
+            "training": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 60620,
+          "terms": {
+            "artificial intelligence": 16,
+            "machine learning": 6,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 46335,
+          "terms": {
+            "artificial intelligence": 5,
+            "machine learning": 4,
+            "data center": 2,
+            "capital expenditure": 6
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 29,
+        "machine learning": 14,
+        "training": 2,
+        "data center": 15,
+        "capital expenditure": 6
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-K",
+      "filingDate": "2026-02-05",
+      "reportDate": "2025-12-31",
+      "accession": "0001652044-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "words": 51951,
+      "chars": 380839,
+      "sections": {
+        "Business": {
+          "chars": 23777,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "agentic": 1,
+            "ai agent": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "foundation model": 1,
+            "training": 1,
+            "data center": 2,
+            "gpu": 2,
+            "accelerator": 2
+          }
+        },
+        "Risk Factors": {
+          "chars": 85151,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 1,
+            "inference": 1,
+            "training": 4,
+            "data center": 4,
+            "gpu": 1,
+            "accelerator": 1,
+            "export control": 3,
+            "compute capacity": 1
+          }
+        },
+        "MD&A": {
+          "chars": 52332,
+          "terms": {
+            "data center": 9,
+            "gpu": 1,
+            "capital expenditure": 8
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 2,
+        "agentic": 1,
+        "ai agent": 1,
+        "machine learning": 1,
+        "large language model": 1,
+        "foundation model": 1,
+        "inference": 1,
+        "training": 5,
+        "data center": 31,
+        "gpu": 4,
+        "accelerator": 3,
+        "export control": 3,
+        "capital expenditure": 10,
+        "compute capacity": 1
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-K/A",
+      "filingDate": "2026-02-04",
+      "reportDate": "2025-12-27",
+      "accession": "0000002488-26-000021",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000021/amd-20251227.htm",
+      "words": 11067,
+      "chars": 71074,
+      "sections": {
+        "MD&A": {
+          "chars": 37341,
+          "terms": {
+            "generative ai": 1,
+            "machine learning": 1,
+            "inference": 3,
+            "training": 1,
+            "data center": 20,
+            "gpu": 19,
+            "accelerator": 1,
+            "export control": 3,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Business",
+        "Risk Factors"
+      ],
+      "terms": {
+        "generative ai": 1,
+        "machine learning": 1,
+        "inference": 3,
+        "training": 1,
+        "data center": 20,
+        "gpu": 19,
+        "accelerator": 1,
+        "export control": 3,
+        "capital expenditure": 2
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-K",
+      "filingDate": "2026-02-04",
+      "reportDate": "2025-12-27",
+      "accession": "0000002488-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "words": 59270,
+      "chars": 422522,
+      "sections": {
+        "Business": {
+          "chars": 59692,
+          "terms": {
+            "generative ai": 2,
+            "machine learning": 2,
+            "inference": 4,
+            "training": 3,
+            "data center": 40,
+            "gpu": 34,
+            "accelerator": 10,
+            "export control": 1,
+            "capital expenditure": 4,
+            "copilot": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 131696,
+          "terms": {
+            "generative ai": 6,
+            "machine learning": 1,
+            "training": 2,
+            "data center": 14,
+            "gpu": 10,
+            "accelerator": 2,
+            "accelerated computing": 1,
+            "export control": 10
+          }
+        },
+        "MD&A": {
+          "chars": 37551,
+          "terms": {
+            "generative ai": 1,
+            "machine learning": 1,
+            "inference": 3,
+            "training": 1,
+            "data center": 20,
+            "gpu": 19,
+            "accelerator": 1,
+            "export control": 3,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 9,
+        "machine learning": 4,
+        "inference": 7,
+        "training": 7,
+        "data center": 98,
+        "gpu": 69,
+        "accelerator": 15,
+        "accelerated computing": 1,
+        "export control": 16,
+        "capital expenditure": 6,
+        "copilot": 1
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-Q",
+      "filingDate": "2026-01-30",
+      "reportDate": "2025-12-27",
+      "accession": "0000320193-26-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm",
+      "words": 8719,
+      "chars": 65300,
+      "sections": {
+        "MD&A": {
+          "chars": 17799,
+          "terms": {}
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {}
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-K",
+      "filingDate": "2026-01-29",
+      "reportDate": "2025-12-31",
+      "accession": "0001628280-26-003942",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+      "words": 79347,
+      "chars": 533572,
+      "sections": {
+        "Business": {
+          "chars": 24573,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "foundation model": 1,
+            "training": 2,
+            "data center": 2,
+            "export control": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 195552,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 4,
+            "ai agent": 1,
+            "machine learning": 6,
+            "training": 2,
+            "data center": 6,
+            "export control": 7,
+            "capital expenditure": 1,
+            "chatbot": 1
+          }
+        },
+        "MD&A": {
+          "chars": 60583,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "data center": 7,
+            "capital expenditure": 5
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 10,
+        "generative ai": 10,
+        "ai agent": 1,
+        "machine learning": 11,
+        "foundation model": 1,
+        "training": 7,
+        "data center": 31,
+        "export control": 8,
+        "capital expenditure": 6,
+        "chatbot": 3
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-Q",
+      "filingDate": "2026-01-28",
+      "reportDate": "2025-12-31",
+      "accession": "0001193125-26-027207",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526027207/msft-20251231.htm",
+      "words": 30715,
+      "chars": 231435,
+      "sections": {
+        "Risk Factors": {
+          "chars": 3558,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 3726,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 3,
+        "agentic": 1,
+        "machine learning": 1,
+        "training": 7,
+        "data center": 17,
+        "export control": 3,
+        "capital expenditure": 3,
+        "compute capacity": 12,
+        "copilot": 5
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "form": "10-K",
+      "filingDate": "2025-12-18",
+      "reportDate": "2025-11-02",
+      "accession": "0001730168-25-000121",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "words": 54513,
+      "chars": 396708,
+      "sections": {
+        "Business": {
+          "chars": 45210,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "machine learning": 4,
+            "inference": 2,
+            "training": 2,
+            "data center": 12,
+            "accelerator": 2
+          }
+        },
+        "Risk Factors": {
+          "chars": 90268,
+          "terms": {
+            "data center": 12,
+            "accelerator": 5,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 49399,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 3,
+            "accelerator": 2,
+            "capital expenditure": 5
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 1,
+        "machine learning": 4,
+        "inference": 2,
+        "training": 5,
+        "data center": 30,
+        "accelerator": 9,
+        "capital expenditure": 8
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "form": "10-Q",
+      "filingDate": "2025-12-11",
+      "reportDate": "2025-11-30",
+      "accession": "0001193125-25-315925",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525315925/orcl-20251130.htm",
+      "words": 21793,
+      "chars": 155534,
+      "sections": {
+        "MD&A": {
+          "chars": 72126,
+          "terms": {
+            "data center": 9,
+            "capital expenditure": 11
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {
+        "data center": 11,
+        "capital expenditure": 16
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-12-05",
+      "reportDate": "2025-10-31",
+      "accession": "0001640147-25-000211",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014725000211/snow-20251031.htm",
+      "words": 59476,
+      "chars": 428582,
+      "sections": {
+        "Risk Factors": {
+          "chars": 162357,
+          "terms": {
+            "artificial intelligence": 4,
+            "generative ai": 4,
+            "machine learning": 2,
+            "training": 7,
+            "data center": 1,
+            "gpu": 2,
+            "export control": 2,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 83643,
+          "terms": {
+            "artificial intelligence": 1,
+            "machine learning": 2,
+            "training": 3,
+            "gpu": 4,
+            "capital expenditure": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 7,
+        "generative ai": 4,
+        "machine learning": 5,
+        "large language model": 2,
+        "training": 10,
+        "data center": 1,
+        "gpu": 6,
+        "export control": 2,
+        "capital expenditure": 6,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-12-04",
+      "reportDate": "2025-10-31",
+      "accession": "0001108524-25-000238",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000238/crm-20251031.htm",
+      "words": 44926,
+      "chars": 322756,
+      "sections": {
+        "Risk Factors": {
+          "chars": 123029,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 7,
+            "agentic": 2,
+            "ai agent": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1,
+            "data center": 13,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 51312,
+          "terms": {
+            "artificial intelligence": 1,
+            "agentic": 2,
+            "ai agent": 2,
+            "data center": 1,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 7,
+        "agentic": 4,
+        "ai agent": 4,
+        "machine learning": 1,
+        "large language model": 1,
+        "training": 3,
+        "data center": 17,
+        "export control": 2,
+        "capital expenditure": 7
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-12-02",
+      "reportDate": "2025-10-31",
+      "accession": "0001628280-25-054768",
+      "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828025054768/mdb-20251031.htm",
+      "words": 50624,
+      "chars": 348800,
+      "sections": {
+        "Risk Factors": {
+          "chars": 196905,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 5,
+            "machine learning": 1,
+            "training": 9,
+            "data center": 1,
+            "export control": 5,
+            "capital expenditure": 4
+          }
+        },
+        "MD&A": {
+          "chars": 44856,
+          "terms": {
+            "training": 6
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 5,
+        "machine learning": 1,
+        "training": 16,
+        "data center": 1,
+        "export control": 5,
+        "capital expenditure": 4
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "form": "10-Q",
+      "filingDate": "2025-11-19",
+      "reportDate": "2025-10-26",
+      "accession": "0001045810-25-000230",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+      "words": 23254,
+      "chars": 167080,
+      "sections": {
+        "Risk Factors": {
+          "chars": 46714,
+          "terms": {
+            "generative ai": 1,
+            "large language model": 1,
+            "foundation model": 6,
+            "training": 3,
+            "data center": 20,
+            "gpu": 18,
+            "accelerator": 1,
+            "accelerated computing": 5,
+            "export control": 37
+          }
+        },
+        "MD&A": {
+          "chars": 32870,
+          "terms": {
+            "agentic": 2,
+            "foundation model": 1,
+            "data center": 11,
+            "gpu": 1,
+            "accelerated computing": 5,
+            "export control": 2
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "generative ai": 1,
+        "agentic": 2,
+        "large language model": 1,
+        "foundation model": 7,
+        "training": 3,
+        "data center": 41,
+        "gpu": 26,
+        "accelerator": 1,
+        "accelerated computing": 11,
+        "export control": 39
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-Q",
+      "filingDate": "2025-11-05",
+      "reportDate": "2025-09-27",
+      "accession": "0000002488-25-000166",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm",
+      "words": 34264,
+      "chars": 247494,
+      "sections": {
+        "Risk Factors": {
+          "chars": 128865,
+          "terms": {
+            "generative ai": 6,
+            "machine learning": 1,
+            "training": 2,
+            "data center": 10,
+            "gpu": 11,
+            "accelerator": 2,
+            "accelerated computing": 1,
+            "export control": 9
+          }
+        },
+        "MD&A": {
+          "chars": 32907,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 15,
+            "gpu": 11,
+            "accelerator": 1,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 6,
+        "machine learning": 1,
+        "training": 2,
+        "data center": 44,
+        "gpu": 29,
+        "accelerator": 5,
+        "accelerated computing": 1,
+        "export control": 12,
+        "capital expenditure": 2
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-11-04",
+      "reportDate": "2025-09-30",
+      "accession": "0001321655-25-000131",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165525000131/pltr-20250930.htm",
+      "words": 65271,
+      "chars": 452235,
+      "sections": {
+        "Risk Factors": {
+          "chars": 298911,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 1,
+            "agentic": 3,
+            "machine learning": 5,
+            "inference": 1,
+            "training": 11,
+            "data center": 1,
+            "export control": 7,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 48973,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 1,
+            "agentic": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 2,
+        "agentic": 4,
+        "machine learning": 6,
+        "large language model": 1,
+        "inference": 1,
+        "training": 12,
+        "data center": 1,
+        "export control": 7,
+        "capital expenditure": 2,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-Q",
+      "filingDate": "2025-10-31",
+      "reportDate": "2025-09-30",
+      "accession": "0001018724-25-000123",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000123/amzn-20250930.htm",
+      "words": 26943,
+      "chars": 200305,
+      "sections": {
+        "Risk Factors": {
+          "chars": 59675,
+          "terms": {
+            "artificial intelligence": 9,
+            "machine learning": 3,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 41656,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 2,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 11,
+        "machine learning": 4,
+        "data center": 11,
+        "capital expenditure": 4
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-K",
+      "filingDate": "2025-10-31",
+      "reportDate": "2025-09-27",
+      "accession": "0000320193-25-000079",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "words": 30870,
+      "chars": 219145,
+      "sections": {
+        "Business": {
+          "chars": 15978,
+          "terms": {
+            "training": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 68042,
+          "terms": {
+            "artificial intelligence": 6,
+            "machine learning": 4,
+            "training": 1,
+            "export control": 1
+          }
+        },
+        "MD&A": {
+          "chars": 17990,
+          "terms": {
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 6,
+        "machine learning": 4,
+        "training": 3,
+        "data center": 3,
+        "export control": 1
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-10-30",
+      "reportDate": "2025-09-30",
+      "accession": "0001652044-25-000091",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/goog-20250930.htm",
+      "words": 23986,
+      "chars": 191279,
+      "sections": {
+        "MD&A": {
+          "chars": 52075,
+          "terms": {
+            "data center": 4,
+            "capital expenditure": 7
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {
+        "artificial intelligence": 1,
+        "training": 1,
+        "data center": 11,
+        "capital expenditure": 9
+      }
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-10-30",
+      "reportDate": "2025-09-30",
+      "accession": "0001628280-25-047240",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm",
+      "words": 59632,
+      "chars": 400502,
+      "sections": {
+        "Risk Factors": {
+          "chars": 194613,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 4,
+            "machine learning": 6,
+            "training": 2,
+            "data center": 6,
+            "export control": 7,
+            "capital expenditure": 1,
+            "chatbot": 1
+          }
+        },
+        "MD&A": {
+          "chars": 50566,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "data center": 6,
+            "capital expenditure": 6
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 9,
+        "generative ai": 8,
+        "machine learning": 10,
+        "training": 4,
+        "data center": 24,
+        "export control": 7,
+        "capital expenditure": 8,
+        "chatbot": 1
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-Q",
+      "filingDate": "2025-10-29",
+      "reportDate": "2025-09-30",
+      "accession": "0001193125-25-256321",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+      "words": 27953,
+      "chars": 208275,
+      "sections": {
+        "Risk Factors": {
+          "chars": 3558,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 3723,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 3,
+        "agentic": 1,
+        "machine learning": 1,
+        "training": 7,
+        "data center": 17,
+        "export control": 3,
+        "capital expenditure": 3,
+        "compute capacity": 7,
+        "copilot": 4
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-09-10",
+      "reportDate": "2025-08-03",
+      "accession": "0001730168-25-000098",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/avgo-20250803.htm",
+      "words": 30128,
+      "chars": 216765,
+      "sections": {
+        "Risk Factors": {
+          "chars": 91624,
+          "terms": {
+            "data center": 7,
+            "accelerator": 6,
+            "capital expenditure": 4
+          }
+        },
+        "MD&A": {
+          "chars": 31217,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1,
+            "accelerator": 2,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "data center": 10,
+        "accelerator": 8,
+        "capital expenditure": 9
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "form": "10-Q",
+      "filingDate": "2025-09-10",
+      "reportDate": "2025-08-31",
+      "accession": "0001193125-25-200095",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525200095/orcl-20250831.htm",
+      "words": 20134,
+      "chars": 142366,
+      "sections": {
+        "MD&A": {
+          "chars": 62072,
+          "terms": {
+            "data center": 4,
+            "capital expenditure": 5
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {
+        "inference": 1,
+        "data center": 9,
+        "capital expenditure": 8
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-09-05",
+      "reportDate": "2025-07-31",
+      "accession": "0001640147-25-000187",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014725000187/snow-20250731.htm",
+      "words": 56983,
+      "chars": 408590,
+      "sections": {
+        "Risk Factors": {
+          "chars": 160600,
+          "terms": {
+            "artificial intelligence": 4,
+            "generative ai": 4,
+            "machine learning": 2,
+            "training": 6,
+            "data center": 1,
+            "gpu": 2,
+            "export control": 2,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 80041,
+          "terms": {
+            "artificial intelligence": 1,
+            "machine learning": 2,
+            "training": 3,
+            "gpu": 4,
+            "capital expenditure": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 7,
+        "generative ai": 5,
+        "machine learning": 5,
+        "training": 9,
+        "data center": 1,
+        "gpu": 6,
+        "export control": 2,
+        "capital expenditure": 6,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-09-04",
+      "reportDate": "2025-07-31",
+      "accession": "0001108524-25-000088",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000088/crm-20250731.htm",
+      "words": 44443,
+      "chars": 317414,
+      "sections": {
+        "Risk Factors": {
+          "chars": 122533,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 7,
+            "agentic": 2,
+            "ai agent": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1,
+            "data center": 13,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 52110,
+          "terms": {
+            "artificial intelligence": 1,
+            "agentic": 3,
+            "ai agent": 2,
+            "data center": 1,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 7,
+        "agentic": 5,
+        "ai agent": 4,
+        "machine learning": 1,
+        "large language model": 1,
+        "training": 3,
+        "data center": 17,
+        "export control": 2,
+        "capital expenditure": 7
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "form": "10-Q",
+      "filingDate": "2025-08-27",
+      "reportDate": "2025-07-27",
+      "accession": "0001045810-25-000209",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/nvda-20250727.htm",
+      "words": 20597,
+      "chars": 148968,
+      "sections": {
+        "Risk Factors": {
+          "chars": 30799,
+          "terms": {
+            "generative ai": 1,
+            "foundation model": 6,
+            "training": 3,
+            "data center": 7,
+            "gpu": 12,
+            "accelerator": 1,
+            "export control": 32
+          }
+        },
+        "MD&A": {
+          "chars": 32654,
+          "terms": {
+            "agentic": 2,
+            "large language model": 3,
+            "foundation model": 1,
+            "data center": 11,
+            "gpu": 2,
+            "accelerated computing": 4,
+            "export control": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "generative ai": 1,
+        "agentic": 2,
+        "large language model": 3,
+        "foundation model": 7,
+        "training": 3,
+        "data center": 30,
+        "gpu": 21,
+        "accelerator": 1,
+        "accelerated computing": 5,
+        "export control": 34
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-08-27",
+      "reportDate": "2025-07-31",
+      "accession": "0001441816-25-000181",
+      "url": "https://www.sec.gov/Archives/edgar/data/1441816/000144181625000181/mdb-20250731.htm",
+      "words": 49406,
+      "chars": 338518,
+      "sections": {
+        "Risk Factors": {
+          "chars": 194747,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 5,
+            "machine learning": 1,
+            "training": 8,
+            "data center": 1,
+            "export control": 5,
+            "capital expenditure": 4
+          }
+        },
+        "MD&A": {
+          "chars": 43911,
+          "terms": {
+            "training": 6
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 5,
+        "machine learning": 1,
+        "training": 15,
+        "data center": 1,
+        "export control": 5,
+        "capital expenditure": 4
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES INC",
+      "form": "10-Q",
+      "filingDate": "2025-08-06",
+      "reportDate": "2025-06-28",
+      "accession": "0000002488-25-000108",
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000108/amd-20250628.htm",
+      "words": 33723,
+      "chars": 243537,
+      "sections": {
+        "Risk Factors": {
+          "chars": 128026,
+          "terms": {
+            "generative ai": 6,
+            "machine learning": 1,
+            "training": 3,
+            "data center": 10,
+            "gpu": 11,
+            "accelerator": 2,
+            "export control": 8
+          }
+        },
+        "MD&A": {
+          "chars": 32793,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 16,
+            "gpu": 6,
+            "accelerator": 1,
+            "export control": 3,
+            "capital expenditure": 2
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 6,
+        "machine learning": 1,
+        "training": 3,
+        "data center": 46,
+        "gpu": 23,
+        "accelerator": 5,
+        "export control": 12,
+        "capital expenditure": 2
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-08-05",
+      "reportDate": "2025-06-30",
+      "accession": "0001321655-25-000106",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165525000106/pltr-20250630.htm",
+      "words": 64549,
+      "chars": 445647,
+      "sections": {
+        "Risk Factors": {
+          "chars": 297176,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 3,
+            "machine learning": 5,
+            "large language model": 1,
+            "inference": 1,
+            "training": 11,
+            "data center": 1,
+            "export control": 7,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 48662,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 2,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 5,
+        "machine learning": 6,
+        "large language model": 2,
+        "inference": 1,
+        "training": 12,
+        "data center": 1,
+        "export control": 7,
+        "capital expenditure": 2,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-Q",
+      "filingDate": "2025-08-01",
+      "reportDate": "2025-06-30",
+      "accession": "0001018724-25-000086",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000086/amzn-20250630.htm",
+      "words": 25748,
+      "chars": 190966,
+      "sections": {
+        "Risk Factors": {
+          "chars": 59675,
+          "terms": {
+            "artificial intelligence": 9,
+            "machine learning": 3,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 40541,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 2,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 11,
+        "machine learning": 4,
+        "data center": 11,
+        "capital expenditure": 4
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-08-01",
+      "reportDate": "2025-06-28",
+      "accession": "0000320193-25-000073",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm",
+      "words": 9376,
+      "chars": 70522,
+      "sections": {
+        "MD&A": {
+          "chars": 19771,
+          "terms": {}
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {}
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-07-31",
+      "reportDate": "2025-06-30",
+      "accession": "0001628280-25-036791",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828025036791/meta-20250630.htm",
+      "words": 57478,
+      "chars": 384231,
+      "sections": {
+        "Risk Factors": {
+          "chars": 192405,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 4,
+            "machine learning": 6,
+            "training": 2,
+            "data center": 6,
+            "export control": 7,
+            "capital expenditure": 1
+          }
+        },
+        "MD&A": {
+          "chars": 49056,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 2,
+            "machine learning": 1,
+            "data center": 6,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 9,
+        "generative ai": 8,
+        "machine learning": 10,
+        "training": 4,
+        "data center": 17,
+        "export control": 7,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-K",
+      "filingDate": "2025-07-30",
+      "reportDate": "2025-06-30",
+      "accession": "0000950170-25-100235",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "words": 46841,
+      "chars": 344738,
+      "sections": {
+        "Business": {
+          "chars": 2226,
+          "terms": {
+            "artificial intelligence": 1
+          }
+        },
+        "Risk Factors": {
+          "chars": 4632,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 3788,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 3,
+        "generative ai": 4,
+        "agentic": 3,
+        "machine learning": 3,
+        "training": 16,
+        "data center": 30,
+        "gpu": 2,
+        "export control": 3,
+        "capital expenditure": 3,
+        "compute capacity": 2,
+        "copilot": 11
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-07-24",
+      "reportDate": "2025-06-30",
+      "accession": "0001652044-25-000062",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/goog-20250630.htm",
+      "words": 23833,
+      "chars": 188596,
+      "sections": {
+        "MD&A": {
+          "chars": 51343,
+          "terms": {
+            "data center": 4,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {
+        "artificial intelligence": 1,
+        "training": 1,
+        "data center": 7,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "form": "10-K",
+      "filingDate": "2025-06-18",
+      "reportDate": "2025-05-31",
+      "accession": "0000950170-25-087926",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/orcl-20250531.htm",
+      "words": 61994,
+      "chars": 451547,
+      "sections": {
+        "Business": {
+          "chars": 58201,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 5,
+            "agentic": 1,
+            "machine learning": 6,
+            "large language model": 1,
+            "training": 2,
+            "data center": 14
+          }
+        },
+        "Risk Factors": {
+          "chars": 78201,
+          "terms": {
+            "generative ai": 2,
+            "agentic": 1,
+            "machine learning": 1,
+            "data center": 16,
+            "accelerator": 1,
+            "export control": 3
+          }
+        },
+        "MD&A": {
+          "chars": 73580,
+          "terms": {
+            "data center": 2,
+            "capital expenditure": 5
+          }
+        }
+      },
+      "tracked": [
+        "Business",
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "generative ai": 7,
+        "agentic": 2,
+        "machine learning": 7,
+        "large language model": 1,
+        "inference": 1,
+        "training": 2,
+        "data center": 38,
+        "accelerator": 1,
+        "export control": 3,
+        "capital expenditure": 8
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-06-11",
+      "reportDate": "2025-05-04",
+      "accession": "0001730168-25-000064",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000064/avgo-20250504.htm",
+      "words": 29438,
+      "chars": 210275,
+      "sections": {
+        "Risk Factors": {
+          "chars": 88553,
+          "terms": {
+            "data center": 6,
+            "accelerator": 4,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 30880,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 2,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "data center": 11,
+        "accelerator": 4,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-06-04",
+      "reportDate": "2025-04-30",
+      "accession": "0001441816-25-000118",
+      "url": "https://www.sec.gov/Archives/edgar/data/1441816/000144181625000118/mdb-20250430.htm",
+      "words": 46935,
+      "chars": 320036,
+      "sections": {
+        "Risk Factors": {
+          "chars": 193226,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 5,
+            "machine learning": 1,
+            "training": 8,
+            "data center": 1,
+            "export control": 5,
+            "capital expenditure": 4
+          }
+        },
+        "MD&A": {
+          "chars": 38481,
+          "terms": {
+            "training": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 5,
+        "machine learning": 1,
+        "training": 13,
+        "data center": 1,
+        "export control": 5,
+        "capital expenditure": 4
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-05-30",
+      "reportDate": "2025-04-30",
+      "accession": "0001640147-25-000110",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014725000110/snow-20250430.htm",
+      "words": 53556,
+      "chars": 380519,
+      "sections": {
+        "Risk Factors": {
+          "chars": 160056,
+          "terms": {
+            "artificial intelligence": 13,
+            "generative ai": 5,
+            "machine learning": 3,
+            "training": 6,
+            "data center": 1,
+            "gpu": 2,
+            "export control": 2,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 73615,
+          "terms": {
+            "artificial intelligence": 3,
+            "machine learning": 2,
+            "training": 3,
+            "gpu": 4,
+            "capital expenditure": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 19,
+        "generative ai": 6,
+        "machine learning": 7,
+        "training": 9,
+        "data center": 1,
+        "gpu": 6,
+        "export control": 2,
+        "capital expenditure": 6,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-05-29",
+      "reportDate": "2025-04-30",
+      "accession": "0001108524-25-000030",
+      "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000030/crm-20250430.htm",
+      "words": 41246,
+      "chars": 293743,
+      "sections": {
+        "Risk Factors": {
+          "chars": 120089,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 7,
+            "agentic": 2,
+            "ai agent": 1,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1,
+            "data center": 12,
+            "export control": 2,
+            "capital expenditure": 2
+          }
+        },
+        "MD&A": {
+          "chars": 45022,
+          "terms": {
+            "artificial intelligence": 1,
+            "agentic": 1,
+            "ai agent": 2,
+            "data center": 1,
+            "capital expenditure": 3
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 7,
+        "agentic": 3,
+        "ai agent": 4,
+        "machine learning": 1,
+        "large language model": 1,
+        "training": 3,
+        "data center": 16,
+        "export control": 2,
+        "capital expenditure": 7
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "form": "10-Q",
+      "filingDate": "2025-05-28",
+      "reportDate": "2025-04-27",
+      "accession": "0001045810-25-000116",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/nvda-20250427.htm",
+      "words": 20342,
+      "chars": 145222,
+      "sections": {
+        "Risk Factors": {
+          "chars": 35997,
+          "terms": {
+            "generative ai": 2,
+            "large language model": 1,
+            "foundation model": 6,
+            "training": 2,
+            "data center": 13,
+            "gpu": 17,
+            "accelerator": 1,
+            "accelerated computing": 3,
+            "export control": 34
+          }
+        },
+        "MD&A": {
+          "chars": 30717,
+          "terms": {
+            "agentic": 2,
+            "large language model": 3,
+            "foundation model": 1,
+            "data center": 14,
+            "gpu": 3,
+            "accelerated computing": 4,
+            "export control": 5
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "generative ai": 2,
+        "agentic": 2,
+        "large language model": 4,
+        "foundation model": 7,
+        "training": 2,
+        "data center": 36,
+        "gpu": 27,
+        "accelerator": 1,
+        "accelerated computing": 8,
+        "export control": 40
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-05-06",
+      "reportDate": "2025-03-31",
+      "accession": "0001321655-25-000066",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165525000066/pltr-20250331.htm",
+      "words": 63001,
+      "chars": 431743,
+      "sections": {
+        "Risk Factors": {
+          "chars": 296863,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 3,
+            "machine learning": 5,
+            "large language model": 1,
+            "inference": 1,
+            "training": 11,
+            "data center": 1,
+            "export control": 7,
+            "capital expenditure": 2,
+            "hallucinat": 1
+          }
+        },
+        "MD&A": {
+          "chars": 42740,
+          "terms": {
+            "artificial intelligence": 2,
+            "generative ai": 2,
+            "machine learning": 1,
+            "large language model": 1,
+            "training": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 4,
+        "generative ai": 5,
+        "machine learning": 6,
+        "large language model": 2,
+        "inference": 1,
+        "training": 12,
+        "data center": 1,
+        "export control": 7,
+        "capital expenditure": 2,
+        "hallucinat": 1
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMAZON COM INC",
+      "form": "10-Q",
+      "filingDate": "2025-05-02",
+      "reportDate": "2025-03-31",
+      "accession": "0001018724-25-000036",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000036/amzn-20250331.htm",
+      "words": 24278,
+      "chars": 178429,
+      "sections": {
+        "Risk Factors": {
+          "chars": 59675,
+          "terms": {
+            "artificial intelligence": 9,
+            "machine learning": 3,
+            "data center": 7
+          }
+        },
+        "MD&A": {
+          "chars": 36365,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 2,
+            "capital expenditure": 5
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 11,
+        "machine learning": 4,
+        "data center": 11,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-05-02",
+      "reportDate": "2025-03-29",
+      "accession": "0000320193-25-000057",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+      "words": 11041,
+      "chars": 81984,
+      "sections": {
+        "Risk Factors": {
+          "chars": 12253,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 20976,
+          "terms": {}
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {}
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-05-01",
+      "reportDate": "2025-03-31",
+      "accession": "0001326801-25-000054",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000054/meta-20250331.htm",
+      "words": 55261,
+      "chars": 368616,
+      "sections": {
+        "Risk Factors": {
+          "chars": 190398,
+          "terms": {
+            "artificial intelligence": 6,
+            "generative ai": 3,
+            "machine learning": 6,
+            "training": 1,
+            "data center": 6,
+            "export control": 7,
+            "capital expenditure": 1
+          }
+        },
+        "MD&A": {
+          "chars": 46649,
+          "terms": {
+            "artificial intelligence": 1,
+            "generative ai": 3,
+            "machine learning": 1,
+            "data center": 5,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 9,
+        "generative ai": 8,
+        "machine learning": 10,
+        "training": 3,
+        "data center": 13,
+        "export control": 7,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "form": "10-Q",
+      "filingDate": "2025-04-30",
+      "reportDate": "2025-03-31",
+      "accession": "0000950170-25-061046",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025061046/msft-20250331.htm",
+      "words": 31847,
+      "chars": 239480,
+      "sections": {
+        "Risk Factors": {
+          "chars": 3526,
+          "terms": {}
+        },
+        "MD&A": {
+          "chars": 3991,
+          "terms": {
+            "artificial intelligence": 1,
+            "data center": 1
+          }
+        }
+      },
+      "tracked": [
+        "Risk Factors",
+        "MD&A"
+      ],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 2,
+        "generative ai": 5,
+        "agentic": 1,
+        "machine learning": 1,
+        "training": 8,
+        "data center": 17,
+        "gpu": 1,
+        "export control": 2,
+        "capital expenditure": 3,
+        "compute capacity": 2,
+        "copilot": 3
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "form": "10-Q",
+      "filingDate": "2025-04-25",
+      "reportDate": "2025-03-31",
+      "accession": "0001652044-25-000043",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm",
+      "words": 20778,
+      "chars": 157639,
+      "sections": {
+        "MD&A": {
+          "chars": 46080,
+          "terms": {
+            "data center": 4,
+            "capital expenditure": 4
+          }
+        }
+      },
+      "tracked": [
+        "MD&A"
+      ],
+      "missingTracked": [
+        "Risk Factors"
+      ],
+      "terms": {
+        "artificial intelligence": 1,
+        "data center": 7,
+        "capital expenditure": 5
+      }
+    },
+    {
+      "ticker": "TSM",
+      "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+      "form": "20-F",
+      "filingDate": "2025-04-17",
+      "reportDate": "2024-12-31",
+      "accession": "0001193125-25-083423",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000119312525083423/d896993d20f.htm",
+      "words": 93940,
+      "chars": 697348,
+      "sections": {},
+      "tracked": [],
+      "missingTracked": [],
+      "terms": {
+        "artificial intelligence": 1,
+        "training": 5,
+        "data center": 2,
+        "gpu": 2,
+        "accelerator": 1,
+        "export control": 17,
+        "capital expenditure": 21
+      }
+    }
+  ]
+}
