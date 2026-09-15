@@ -128,6 +128,10 @@ function rawSeries(bucket, tag, period) {
   }
 
   if (!byPeriod.size) return null;
+  // An all-zero series is not a series. APA's selected revenue tag returns 0 for
+  // every period, which rendered as "$0 revenue" for Apache and divided the chart
+  // scale by zero. Reject it so a better candidate wins, or the metric is absent.
+  if ([...byPeriod.values()].every(p => !p.val)) return null;
   const points = [...byPeriod.values()]
     .sort((a, b) => a.end.localeCompare(b.end))
     .map(p => ({ start: p.start, end: p.end, val: p.val, form: p.form, fy: p.fy, fp: p.fp, filed: p.filed }));

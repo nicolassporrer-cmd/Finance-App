@@ -29,6 +29,31 @@ body{margin:0;background:var(--desk);color:var(--ink-d);
 .strip b{color:var(--amber);font-weight:500}
 .up{color:var(--up)} .dn{color:var(--dn)}
 
+/* Market bar. A two-year column cannot show a one-week move — the whole move
+   fits inside a single step of a fortnightly series — so the short windows get
+   their own row at the top, with breadth beside them. An index down 1% while a
+   third of the market is down 5% is a different week from a quiet one, and only
+   breadth distinguishes the two. */
+.market{display:flex;flex-wrap:wrap;background:var(--board);border-bottom:1px solid var(--rule-d)}
+.mk{padding:10px 16px;border-right:1px solid var(--rule-d);min-width:132px}
+.mk .l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.mk .v{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;color:#E8E9EC}
+.mk .r{font-size:10.5px;font-variant-numeric:tabular-nums;margin-top:2px;color:var(--dim2)}
+.mk .r b{font-weight:500}
+.mk.breadth{flex:1;min-width:250px;border-right:0}
+.mk .bar{display:flex;height:7px;margin:6px 0 5px;background:var(--rule-dd);overflow:hidden}
+.mk .bar i{display:block;height:100%}
+.mk .note{font-size:9.5px;color:var(--dim);letter-spacing:.03em}
+
+/* Data age. The refresh failed silently for 25 days once and the page gave no
+   sign — it looked live because it was live, just not current. */
+.stale{display:flex;align-items:center;gap:12px;padding:9px 18px;
+  background:#2A1A10;border-bottom:1px solid #5A3A1A;color:#E8A33D;
+  font-size:11px;letter-spacing:.04em}
+.stale b{color:#FFD9A0}
+.stale.bad{background:#2E1415;border-bottom-color:#6A2A2A;color:#EF8A7E}
+.stale.bad b{color:#FFC4BC}
+
 .masthead{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;
   padding:26px 22px 16px;border-bottom:1px solid var(--rule-d)}
 .masthead h1{margin:0;font-size:22px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#E8E9EC}
@@ -220,6 +245,8 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
 
 <div class="shell">
   <div class="strip" id="strip"></div>
+  <div id="stale"></div>
+  <div class="market" id="market"></div>
 
   <div class="masthead">
     <div>
@@ -252,6 +279,9 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       <li><b>Only 20% of 10-Qs restate Risk Factors.</b> The other 80% cross-reference their 10-K instead, so most quarterly language comparisons cover MD&amp;A alone. That is a real difference in filing practice, not a parsing failure &mdash; and which companies bother is itself informative.</li>
       <li><b>Dual-class listings are collapsed in the ranking only.</b> Alphabet sits in the index as both GOOG and GOOGL with identical figures; the top twenty counts it once, by CIK. Both still appear under their letters.</li>
       <li><b>Analyst consensus is ratings only, and shallow.</b> Finnhub's free tier returned recommendation counts for all 503 companies, but price targets sit behind its paid tier and return 403, so no target range is shown anywhere. It also returns only four monthly snapshots, so the mix chart is a short window, not a long trend.</li>
+      <li><b>The index hides what most companies are doing.</b> The S&amp;P is capitalisation-weighted, so a handful of large winners can hold it near flat while the typical company falls. That is why the top bar reports breadth &mdash; how many rose, how many fell, the median move, and how many moved more than 5% &mdash; beside the index level. Read them together: an index down 1% with a third of the market down 5% is a different week from a quiet one.</li>
+      <li><b>Short-window returns count trading days, not calendar days.</b> "1 week" is five sessions back, "1 month" twenty-one. Counting calendar days would land on weekends and holidays and silently compare against the wrong close. Where the history is too short to reach back, the cell is blank.</li>
+      <li><b>The 30-session chart is separate from the two-year one for a reason.</b> The long series is thinned to fortnightly to keep the page loadable, so a one-week move fits inside a single step of it and cannot be drawn. The recent chart keeps full daily resolution.</li>
       <li><b>Price reaction is not attribution.</b> It is the move from the last close before the filing to the first close after it. The earnings release, guidance and market-wide moves land in the same window.</li>
       <li><b>Company descriptions are quoted, never written.</b> Every sentence under "What this company does" comes verbatim from that company's own Item 1 "Business" in its most recent 10-K, with the filing linked. A convincing one-line summary of what a company does is trivial to generate and impossible for a reader to tell apart from a sourced one, so none is generated: a company whose Item 1 cannot be parsed shows an explicit blank instead. The selection is automatic, so a few companies open on a less useful sentence than a human would have picked.</li>
       <li><b>The dynamics panel is a set of measurements, not a recommendation.</b> Each line compares two filed figures and states which two. It is not investment advice and does not attempt a verdict.</li>
@@ -320,6 +350,51 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
     D.totals.withPrices + ' priced · ' + D.totals.withDiffs + ' with language diffs · ' +
     (D.totals.allForms || 0).toLocaleString() + ' filings of all types seen';
 
+  // ---------------- data age ----------------
+  // Answering "is this up to date?" should not require reading the footer or
+  // asking. Measured against the newest close in the set, not the build time:
+  // a build run on a Sunday legitimately carries Friday's closes.
+  (function(){
+    var asOf = D.priceAsOf || null;
+    var el = document.getElementById('stale');
+    if (!asOf){ el.innerHTML=''; return; }
+    var age = daysSince(asOf);
+    if (age === null || age <= 4){ el.innerHTML=''; return; }
+    var bad = age > 10;
+    el.innerHTML = '<div class="stale'+(bad?' bad':'')+'">'+
+      '<span>'+(bad?'&#9888;':'&#9432;')+'</span>'+
+      '<span>Prices are <b>'+age+' days old</b> &mdash; newest close is '+asOf+
+      '. The daily refresh has not run since then, so every figure below is from that date, '+
+      'not today.</span></div>';
+  })();
+
+  // ---------------- market bar ----------------
+  (function(){
+    var pr1=function(v){ return (v===null||v===undefined)?'—':(v>0?'+':'')+v.toFixed(2)+'%'; };
+    var cl=function(v){ return (v===null||v===undefined)?'':(v>0?'up':(v<0?'dn':'')); };
+    var cells=(D.benchmarks||[]).map(function(b){
+      var r=b.returns||{};
+      return '<div class="mk"><div class="l">'+esc(b.label)+'</div>'+
+        '<div class="v">'+(b.last===null||b.last===undefined?'—':b.last.toFixed(2))+'</div>'+
+        '<div class="r">1w <b class="'+cl(r.w1)+'">'+pr1(r.w1)+'</b> &nbsp; 1m <b class="'+cl(r.m1)+'">'+pr1(r.m1)+'</b></div></div>';
+    }).join('');
+
+    var b=D.totals.breadth;
+    if(b){
+      var pctDown=(b.down/b.counted*100), pctUp=(b.up/b.counted*100);
+      cells+='<div class="mk breadth"><div class="l">Breadth &middot; past week &middot; '+b.counted+' companies</div>'+
+        '<div class="bar">'+
+          '<i style="width:'+pctDown.toFixed(1)+'%;background:var(--dn)"></i>'+
+          '<i style="width:'+pctUp.toFixed(1)+'%;background:var(--up)"></i>'+
+        '</div>'+
+        '<div class="r"><b class="dn">'+b.down+' down</b> &nbsp; <b class="up">'+b.up+' up</b>'+
+        ' &nbsp;&middot;&nbsp; median <b class="'+cl(b.median)+'">'+pr1(b.median)+'</b></div>'+
+        '<div class="note">'+b.downHard+' fell 5% or more &middot; '+b.upHard+' rose 5% or more'+
+        ' &middot; range '+pr1(b.worst)+' to '+pr1(b.best)+'</div></div>';
+    }
+    document.getElementById('market').innerHTML=cells;
+  })();
+
   // The strip is a ticker tape, not an index: 503 entries would scroll for metres
   // and paint slowly. It shows the largest names by revenue.
   document.getElementById('strip').innerHTML = latest.slice(0, 24).map(function(c){
@@ -342,9 +417,12 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
   }
 
   // ---------------- 00 · the board ----------------
-  var HEAD = '<thead><tr><th>Sym</th><th>Company</th><th>Period</th><th>Revenue</th><th>YoY</th>' +
-    '<th>EBITDA mgn</th><th>Free cash flow</th><th>Trend</th><th>Price 2y</th>' +
-    '<th>Filing 1d</th><th>New risk</th></tr></thead>';
+  // 1w and 1m sit immediately after the ticker, before the fundamentals: a move
+  // that has already happened is what you scan for first, and burying it behind
+  // four revenue columns is why a week-long selloff was invisible here.
+  var HEAD = '<thead><tr><th>Sym</th><th>Company</th><th>30 sessions</th><th>1w</th><th>1m</th>' +
+    '<th>2y</th><th>Period</th><th>Revenue</th><th>YoY</th>' +
+    '<th>EBITDA mgn</th><th>Free cash flow</th><th>Filing 1d</th><th>New risk</th></tr></thead>';
 
   function row(c){
     var r=c.headline.revenue;
@@ -353,16 +431,24 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
     var rf=c.diffs.filter(function(d){return d.section==='Risk Factors';})
                   .reduce(function(n,d){return n+d.added;},0);
     var cell=function(txt,kl){ return txt==='—'?'<td class="z">—</td>':'<td class="'+(kl||'')+'">'+txt+'</td>'; };
+    var ret=(c.price&&c.price.returns)||{};
+    var pr2=function(v){ return (v===null||v===undefined)?'—':(v>0?'+':'')+v.toFixed(1)+'%'; };
+    // Daily, not the thinned two-year series: a one-week move is four bars, and
+    // the long series only has a point every fortnight.
+    var recent=(c.price&&c.price.recent)||[];
+
     return '<tr class="pick" data-t="'+c.ticker+'" tabindex="0" role="button" aria-selected="false">' +
       '<td class="tk">'+esc(c.ticker)+star(c)+'</td>' +
-      '<td class="z" style="max-width:190px;overflow:hidden;text-overflow:ellipsis">'+esc(c.name||'')+'</td>' +
+      '<td class="z" style="max-width:170px;overflow:hidden;text-overflow:ellipsis">'+esc(c.name||'')+'</td>' +
+      '<td>'+(recent.length>1?sparkline(recent,62,16):'<span class="z">—</span>')+'</td>' +
+      cell(pr2(ret.w1), dirCls(ret.w1,'up','dn')) +
+      cell(pr2(ret.m1), dirCls(ret.m1,'up','dn')) +
+      cell(c.price&&c.price.rangePct!==null&&c.price.rangePct!==undefined?pr(c.price.rangePct):'—', dirCls(c.price&&c.price.rangePct,'up','dn')) +
       '<td class="z">'+(r?r.label:'—')+'</td>' +
       cell(r?B(r.val)+' '+(c.unit||''):'—') +
       cell(r&&r.yoy!==null&&r.yoy!==undefined?pc(r.yoy):'—', dirCls(r&&r.yoy,'up','dn')) +
       cell(em!==null?em.toFixed(1)+'%':'—') +
       cell(c.fcfQ.length?B(c.fcfQ[c.fcfQ.length-1].val):(c.fcfA.length?B(c.fcfA[c.fcfA.length-1].val):'—')) +
-      '<td>'+(c.price&&c.price.series.length?sparkline(c.price.series,54,15):'<span class="z">—</span>')+'</td>' +
-      cell(c.price&&c.price.rangePct!==null&&c.price.rangePct!==undefined?pr(c.price.rangePct):'—', dirCls(c.price&&c.price.rangePct,'up','dn')) +
       cell(ev&&ev.pct1d!==null?pr(ev.pct1d):'—', dirCls(ev&&ev.pct1d,'up','dn')) +
       cell(rf?'+'+rf:'—') +
       '</tr>';
@@ -440,6 +526,9 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
     var max=Math.max.apply(null,vals.concat([0]))*1.14;
     var min=Math.min.apply(null,vals.concat([0]));
     if(min>0) min=0; else min*=1.14;
+    // A degenerate range divides the whole scale by zero and paints every
+    // coordinate as NaN — an invisible chart rather than an error.
+    if(max===min) max=min+1;
     var bw=(W-L-R)/s.length;
     var Y=function(v){ return T+(max-v)/(max-min)*(H-T-Bm); };
     var g='',i;
@@ -525,6 +614,54 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       '<circle cx="'+X(s.length-1).toFixed(1)+'" cy="'+Y(s[s.length-1].c).toFixed(1)+'" r="3.4" fill="#2E4A34"/>'+
       '<text x="'+L+'" y="'+(H-8)+'" font-size="8.5" fill="#57544A">'+s[0].d+'</text>'+
       '<text x="'+(W-R)+'" y="'+(H-8)+'" text-anchor="end" font-size="8.5" fill="#57544A">'+s[s.length-1].d+'</text></svg>';
+  }
+
+  // Last 30 sessions at daily resolution, with the week just gone marked. The
+  // two-year chart beside it cannot show this at all: thinned to fortnightly, a
+  // one-week move is a fraction of one step.
+  function recentChart(c){
+    var s=(c.price&&c.price.recent)||[];
+    if(s.length<3) return '<p class="none">No recent daily closes.</p>';
+    var W=780,H=150,L=48,R=54,T=14,Bm=24;
+    var v=s.map(function(p){return p.c;});
+    var mn=Math.min.apply(null,v), mx=Math.max.apply(null,v);
+    var pad=(mx-mn)*0.12||1; mn-=pad; mx+=pad;
+    var X=function(i){ return L+i*(W-L-R)/(s.length-1); };
+    var Y=function(y){ return T+(mx-y)/(mx-mn)*(H-T-Bm); };
+    var g='',i;
+    for(i=0;i<=3;i++){ var vv=mn+(mx-mn)*i/3, y=Y(vv);
+      g+='<line x1="'+L+'" y1="'+y.toFixed(1)+'" x2="'+(W-R)+'" y2="'+y.toFixed(1)+'" stroke="#C9C6B6" stroke-width="1"/>'+
+         '<text x="'+(L-7)+'" y="'+(y+3).toFixed(1)+'" text-anchor="end" font-size="9" fill="#57544A">'+vv.toFixed(0)+'</text>'; }
+
+    // Shade the final five sessions — the "past week" the column reports.
+    var weekStart=Math.max(0,s.length-6);
+    var band='<rect x="'+X(weekStart).toFixed(1)+'" y="'+T+'" width="'+(X(s.length-1)-X(weekStart)).toFixed(1)+
+      '" height="'+(H-T-Bm)+'" fill="#8C2F26" opacity=".07"/>';
+
+    var d=s.map(function(p,i){ return (i?'L':'M')+X(i).toFixed(1)+' '+Y(p.c).toFixed(1); }).join(' ');
+    var rising=s[s.length-1].c>=s[weekStart].c;
+    var lastC=s[s.length-1].c;
+    return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Daily close, last 30 sessions">'+
+      g+band+
+      '<path d="'+d+'" fill="none" stroke="#16150F" stroke-width="1.5"/>'+
+      '<circle cx="'+X(s.length-1).toFixed(1)+'" cy="'+Y(lastC).toFixed(1)+'" r="3.6" fill="'+(rising?'#2E6B45':'#8C2F26')+'"/>'+
+      '<text x="'+(X(s.length-1)+8).toFixed(1)+'" y="'+(Y(lastC)+3).toFixed(1)+'" font-size="10" fill="#16150F">'+lastC.toFixed(2)+'</text>'+
+      '<text x="'+L+'" y="'+(H-7)+'" font-size="8.5" fill="#57544A">'+s[0].d+'</text>'+
+      '<text x="'+X(weekStart).toFixed(1)+'" y="'+(T-4)+'" font-size="8.5" fill="#8C2F26">past week</text>'+
+      '<text x="'+(W-R)+'" y="'+(H-7)+'" text-anchor="end" font-size="8.5" fill="#57544A">'+s[s.length-1].d+'</text></svg>';
+  }
+
+  function returnsRow(c){
+    var r=(c.price&&c.price.returns)||{};
+    var defs=[['1 day','d1'],['1 week','w1'],['1 month','m1'],['3 months','m3'],['6 months','m6'],['Year to date','ytd']];
+    var any=defs.some(function(d){ return r[d[1]]!==null && r[d[1]]!==undefined; });
+    if(!any) return '';
+    return '<div class="figs" style="margin-top:12px">'+defs.map(function(d){
+      var v=r[d[1]];
+      var kl=(v===null||v===undefined)?'':(v>0?'grn':(v<0?'red':''));
+      return '<div class="fig"><div class="l">'+d[0]+'</div><div class="v '+kl+'">'+
+        ((v===null||v===undefined)?'—':(v>0?'+':'')+v.toFixed(1)+'%')+'</div></div>';
+    }).join('')+'</div>';
   }
 
   // ---------------- sheets ----------------
@@ -736,7 +873,9 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
 
     var s3='<div class="sheet"><div class="in">'+
       sheetHead(c,'03 &mdash; MARKET','Share price and reaction',(c.price?esc(c.price.exchange)+'<br>'+D.priceRange+' daily closes':'—'))+
-      '<div class="block" style="border-top:0;padding-top:12px"><h4>Exhibit D &mdash; Close, with filing dates marked in red</h4>'+
+      '<div class="block" style="border-top:0;padding-top:12px"><h4>Exhibit D &mdash; Recent trend, last 30 sessions daily; shaded band is the past week</h4>'+
+        recentChart(c)+returnsRow(c)+'</div>'+
+      '<div class="block"><h4>Exhibit D2 &mdash; Close over '+D.priceRange+', with filing dates marked in red</h4>'+
         priceChart(c)+'</div>'+
       '<div class="block"><h4>Exhibit E &mdash; Move around each filing, last close before to first close after</h4>'+evTable+'</div>'+
       consensusPanel(c)+

@@ -42,6 +42,28 @@ async function chart(symbol) {
 
 const pctChange = (from, to) => from ? Number((((to - from) / from) * 100).toFixed(2)) : null;
 
+// Short-window returns, counted in TRADING days off the end of the series — not
+// calendar days, which would land on weekends and holidays and quietly compare
+// against the wrong bar. Absent when the history is too short to reach back.
+const WINDOWS = { d1: 1, w1: 5, m1: 21, m3: 63, m6: 126 };
+
+function returns(bars) {
+  const n = bars.length;
+  if (!n) return {};
+  const last = bars[n - 1].c;
+  const out = {};
+  for (const [k, back] of Object.entries(WINDOWS)) {
+    out[k] = n > back ? pctChange(bars[n - 1 - back].c, last) : null;
+  }
+  // Year to date measures from the last close of the previous calendar year,
+  // which is the first bar of this one minus one — using the first bar of the
+  // year itself would omit the first day's move.
+  const year = bars[n - 1].d.slice(0, 4);
+  const firstIdx = bars.findIndex(b => b.d.slice(0, 4) === year);
+  out.ytd = firstIdx > 0 ? pctChange(bars[firstIdx - 1].c, last) : null;
+  return out;
+}
+
 function reaction(bars, filingDate) {
   const before = bars.filter(b => b.d < filingDate);
   const after = bars.filter(b => b.d >= filingDate);
@@ -87,9 +109,14 @@ async function main() {
       first: first ? first.d : null, last: last ? last.d : null,
       lastClose: last ? last.c : null,
       rangePct: first && last ? pctChange(first.c, last.c) : null,
+      returns: returns(data.bars),
       // Thinned to roughly weekly so the committed file stays small; the reaction
       // figures above are computed from the full daily series, not from this.
       series: data.bars.filter((_, i) => i % 5 === 0 || i === data.bars.length - 1),
+      // The last 30 sessions at full daily resolution. A two-year series thinned
+      // to weekly cannot show a one-week move at all — the whole move fits inside
+      // a single step of it — so the short window needs its own undecimated data.
+      recent: data.bars.slice(-30),
       events,
     });
 
@@ -98,8 +125,25 @@ async function main() {
     await sleep(300);   // Yahoo is undocumented and unmetered; do not hammer it.
   }
 
+  // Benchmarks, so a company's move can be read against the market rather than in
+  // isolation. Without them a name down 3% looks alarming on a day the index fell 3%.
+  const BENCH = { '^GSPC': 'S&P 500', '^IXIC': 'Nasdaq Composite', '^VIX': 'VIX' };
+  const benchmarks = [];
+  for (const [sym, label] of Object.entries(BENCH)) {
+    try {
+      const d = await chart(sym);
+      const l = d.bars[d.bars.length - 1];
+      benchmarks.push({ symbol: sym, label, last: l ? l.c : null, lastDate: l ? l.d : null,
+        returns: returns(d.bars), recent: d.bars.slice(-30) });
+      console.log(`  ${label.padEnd(18)} ${l ? l.c.toFixed(2) : '?'}  1w ${(returns(d.bars).w1)}%`);
+    } catch (err) {
+      failures.push({ ticker: sym, error: err.message });
+    }
+    await sleep(300);
+  }
+
   fs.writeFileSync(path.join(DATA, 'prices.json'),
-    JSON.stringify({ generatedAt: new Date().toISOString(), range: RANGE, failures, companies: out }, null, 2));
+    JSON.stringify({ generatedAt: new Date().toISOString(), range: RANGE, failures, benchmarks, companies: out }));
   console.log(`\nWrote data/prices.json — ${out.length} tickers, ${failures.length} failed`);
 }
 

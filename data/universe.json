@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T22:01:45.505Z",
+  "generatedAt": "2026-09-15T10:22:37.533Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
@@ -513,7 +513,7 @@
     {
       "ticker": "BEN",
       "rawTicker": "BEN",
-      "name": "FRANKLIN RESOURCES INC",
+      "name": "FRANKLIN TEMPLETON INC",
       "listName": "Franklin Resources",
       "sector": "Financials",
       "subIndustry": "Asset Management & Custody Banks",
@@ -1668,7 +1668,7 @@
       "name": "Ferguson Enterprises Inc. /DE/",
       "listName": "Ferguson Enterprises",
       "sector": "Industrials",
-      "subIndustry": "Building Products",
+      "subIndustry": "Trading Companies & Distributors",
       "cik": "0002011641"
     },
     {

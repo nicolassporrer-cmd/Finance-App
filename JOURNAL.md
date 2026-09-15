@@ -28,3 +28,18 @@ Append-only. Why the app is the way it is, so it can be rebuilt clean.
 **Honesty.** Derived values (EBITDA, FCF, reconstructed Q4) are labelled derived everywhere. Absent data renders an explicit dash naming why. The dynamics panel states measurements and explicitly is not a rating or recommendation.
 
 **Known limits at time of writing:** analyst price targets are paid-tier only; consensus history is four months; TSMC and ASML file 20-F annually so have no quarterly figures; TSMC's annual data lags a year behind ASML's; page numbers still leak into extracted sentences.
+
+
+---
+
+## 2026-09-15 — Stale for 25 days; short-window returns added
+
+**The app was not up to date, and nothing said so.** The daily refresh failed on every run from 2026-08-21 to 2026-09-15 — 25 consecutive failures — at the step that requires `SEC_USER_AGENT`. The secret was never added. The guard behaved exactly as designed: it failed loudly rather than publishing an empty dataset. But a loud failure nobody sees is a silent failure, and the site kept serving 21 August data while looking perfectly live.
+
+Two fixes: a **data-age banner** keyed to the newest close in the set (not build time, which would cry wolf every weekend) — silent under 5 days, amber to 10, red beyond; and the whole pipeline re-run.
+
+**Short-window returns.** Nicolas noticed the market was falling and the app did not show it. He was right about the move and wrong about where it was: the S&P was down only 1.28% on the week. The index is capitalisation-weighted, and META +7.9% and AAPL +4.1% were holding it up while the median company fell 1.93%, 371 of 503 declined, and 76 fell 5% or more. Cooper Companies fell 22%.
+
+So the fix was not only a shorter window but **breadth** — the top bar now shows the index level beside how many companies rose and fell, the median move, and how many moved more than 5%. The two together say something neither says alone.
+
+Mechanically: the two-year series is thinned to fortnightly to keep the page loadable, so a one-week move fits *inside a single step of it* and is undrawable. Short windows needed their own undecimated 30-session series. Returns count trading days, not calendar days, so "1 week" never lands on a weekend.

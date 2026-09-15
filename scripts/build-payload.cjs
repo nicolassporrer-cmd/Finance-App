@@ -171,7 +171,13 @@ const companies = idx.companies.map(co => {
     dynamics: dyn,
 
     price: p ? { currency: p.currency, exchange: p.exchange, lastClose: p.lastClose,
-      last: p.last, rangePct: p.rangePct, series, events: p.events.slice(0, 8) } : null,
+      last: p.last, rangePct: p.rangePct, series,
+      returns: p.returns || null,
+      // Full daily resolution for the short window. The two-year series is thinned
+      // to fortnightly, so a one-week move fits entirely inside one of its steps
+      // and is literally undrawable from it.
+      recent: p.recent || [],
+      events: p.events.slice(0, 8) } : null,
 
     consensus: cons && cons.latest ? { latest: cons.latest, history: cons.history,
       target: cons.target || null, targetUnavailable: cons.targetUnavailable } : null,
@@ -201,6 +207,15 @@ const payload = {
   generatedAt: new Date().toISOString(),
   cutoff: idx.cutoff,
   priceRange: px.range,
+  benchmarks: px.benchmarks || [],
+  priceAsOf: (function(){
+    // The newest close anywhere in the set. This is the honest "as of" for
+    // everything price-related, and it is NOT the build time: a build run on a
+    // Sunday carries Friday's closes.
+    let d = null;
+    for (const c of px.companies) if (c.last && (!d || c.last > d)) d = c.last;
+    return d;
+  })(),
   universe: 'S&P 500',
   consensusAvailable: !!consensus.available,
   totals: {
@@ -216,6 +231,21 @@ const payload = {
     periodic: lang.records.length,
     comparisons: diffs.length,
     priceEvents: px.companies.reduce((n, c) => n + c.events.length, 0),
+    breadth: (function(){
+      const w = px.companies.map(c => c.returns && c.returns.w1).filter(v => v !== null && v !== undefined);
+      if (!w.length) return null;
+      const sorted = w.slice().sort((a,b) => a-b);
+      return {
+        counted: w.length,
+        down: w.filter(v => v < 0).length,
+        up: w.filter(v => v > 0).length,
+        downHard: w.filter(v => v <= -5).length,
+        upHard: w.filter(v => v >= 5).length,
+        median: Number(sorted[Math.floor(sorted.length/2)].toFixed(2)),
+        worst: Number(sorted[0].toFixed(2)),
+        best: Number(sorted[sorted.length-1].toFixed(2)),
+      };
+    })(),
   },
   companies,
 };
