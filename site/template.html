@@ -71,6 +71,12 @@ body{margin:0;background:var(--desk);color:var(--ink-d);
 
 /* Alphabetical accordion. 503 rows at once is unreadable and slow to paint, so
    each letter renders its table only when opened, and stays rendered after. */
+/* The honest empty state. "Nothing filed" is a real and frequent answer, and it
+   needs to say why so an empty section does not read as a broken one. */
+.nofile{border-top:1px solid var(--rule-d);border-bottom:1px solid var(--rule-d);
+  background:var(--board);padding:14px 20px;color:var(--dim2);font-family:Archivo,sans-serif;
+  font-size:12px;line-height:1.7;max-width:96ch}
+
 .letters{border-top:1px solid var(--rule-d)}
 .ltr{width:100%;display:flex;align-items:center;gap:12px;background:var(--board);border:0;
   border-bottom:1px solid var(--rule-d);padding:9px 22px;cursor:pointer;
@@ -256,11 +262,15 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
     <div class="meta" id="mast-meta"></div>
   </div>
 
-  <div class="chap"><span class="n">00</span><h2>Top 20 by revenue</h2>
+  <div class="chap"><span class="n">00</span><h2>Filed this week</h2>
+    <span class="hint" id="freshHint"></span></div>
+  <div id="fresh"></div>
+
+  <div class="chap"><span class="n">01</span><h2>Top 20 by revenue</h2>
     <span class="hint">&#9733; report filed within 7 days &middot; &#9702; other filing &middot; click a row</span></div>
   <div class="tablewrap"><table class="board" id="board"></table></div>
 
-  <div class="chap"><span class="n">00</span><h2>All companies by ticker</h2>
+  <div class="chap"><span class="n">02</span><h2>All companies by ticker</h2>
     <span class="hint" id="allHint"></span></div>
   <div class="letters" id="letters"></div>
 
@@ -279,6 +289,7 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
       <li><b>Only 20% of 10-Qs restate Risk Factors.</b> The other 80% cross-reference their 10-K instead, so most quarterly language comparisons cover MD&amp;A alone. That is a real difference in filing practice, not a parsing failure &mdash; and which companies bother is itself informative.</li>
       <li><b>Dual-class listings are collapsed in the ranking only.</b> Alphabet sits in the index as both GOOG and GOOGL with identical figures; the top twenty counts it once, by CIK. Both still appear under their letters.</li>
       <li><b>Analyst consensus is ratings only, and shallow.</b> Finnhub's free tier returned recommendation counts for all 503 companies, but price targets sit behind its paid tier and return 403, so no target range is shown anywhere. It also returns only four monthly snapshots, so the mix chart is a short window, not a long trend.</li>
+      <li><b>"Filed this week" is usually short, and often empty.</b> Most of the index reports on a calendar quarter, so filings cluster in late January, April, July and October; between those windows only off-calendar filers appear. An empty section there is the true answer, not a failure. The star on a row means the same thing, but the rows always on screen are the twenty largest by revenue &mdash; and those are nearly all calendar-quarter filers, so the star alone left genuine filings hidden inside letter groups.</li>
       <li><b>The index hides what most companies are doing.</b> The S&amp;P is capitalisation-weighted, so a handful of large winners can hold it near flat while the typical company falls. That is why the top bar reports breadth &mdash; how many rose, how many fell, the median move, and how many moved more than 5% &mdash; beside the index level. Read them together: an index down 1% with a third of the market down 5% is a different week from a quiet one.</li>
       <li><b>Short-window returns count trading days, not calendar days.</b> "1 week" is five sessions back, "1 month" twenty-one. Counting calendar days would land on weekends and holidays and silently compare against the wrong close. Where the history is too short to reach back, the cell is blank.</li>
       <li><b>The 30-session chart is separate from the two-year one for a reason.</b> The long series is thinned to fortnightly to keep the page loadable, so a one-week move fits inside a single step of it and cannot be drawn. The recent chart keeps full daily resolution.</li>
@@ -467,6 +478,62 @@ footer{margin:22px 22px 0;padding-top:12px;border-top:1px solid var(--rule-d);
   });
   document.getElementById('board').innerHTML =
     HEAD + '<tbody>' + ranked.slice(0, TOP_N).map(row).join('') + '</tbody>';
+
+  // ---------------- 00 · filed this week ----------------
+  // The star marks a fresh report on a row, but the only rows always on screen
+  // are the twenty largest companies by revenue — and large caps are mostly
+  // calendar-quarter filers, so for most of the year the top 20 is starless and
+  // the three companies that did file are hidden inside letter groups nobody
+  // thought to open. This section lists them outright.
+  (function(){
+    var fresh = D.companies.filter(function(c){
+      if(!c.latestPeriodic) return false;
+      var d = daysSince(c.latestPeriodic.date);
+      return d !== null && d >= 0 && d <= 7;
+    }).sort(function(a,b){ return b.latestPeriodic.date.localeCompare(a.latestPeriodic.date); });
+
+    var hint = document.getElementById('freshHint');
+    var host = document.getElementById('fresh');
+
+    if(!fresh.length){
+      hint.textContent = 'nothing in the last 7 days';
+      host.innerHTML = '<div class="nofile">No S&amp;P 500 company filed a 10-K, 10-Q or 20-F in the last seven days. '+
+        'That is normal outside earnings season &mdash; most of the index reports on a calendar quarter, '+
+        'so filings cluster in late January, April, July and October. Only companies with off-calendar '+
+        'fiscal years file in between.</div>';
+      return;
+    }
+
+    hint.textContent = fresh.length + (fresh.length === 1 ? ' report' : ' reports') + ' in the last 7 days · click a row';
+    var pr2 = function(v){ return (v===null||v===undefined)?'—':(v>0?'+':'')+v.toFixed(1)+'%'; };
+
+    host.innerHTML = '<div class="tablewrap"><table class="board">' +
+      '<thead><tr><th>Filed</th><th>Form</th><th>Sym</th><th>Company</th><th>30 sessions</th>' +
+      '<th>1w</th><th>1m</th><th>Period</th><th>Revenue</th><th>YoY</th><th>Filing 1d</th></tr></thead><tbody>' +
+      fresh.map(function(c){
+        var p = c.latestPeriodic, ret = (c.price && c.price.returns) || {};
+        var rev = c.headline.revenue;
+        var ev = c.price && c.price.events.length ? c.price.events[0] : null;
+        var age = daysSince(p.date);
+        var recent = (c.price && c.price.recent) || [];
+        var cell = function(t,k){ return t==='—' ? '<td class="z">—</td>' : '<td class="'+(k||'')+'">'+t+'</td>'; };
+        return '<tr class="pick" data-t="'+c.ticker+'" tabindex="0" role="button" aria-selected="false">' +
+          '<td>'+p.date+' <span class="z">'+(age===0?'today':age===1?'1d':age+'d')+'</span></td>' +
+          '<td class="z">'+esc(p.form)+'</td>' +
+          '<td class="tk">'+esc(c.ticker)+star(c)+'</td>' +
+          '<td class="z" style="max-width:190px;overflow:hidden;text-overflow:ellipsis">'+esc(c.name||'')+'</td>' +
+          '<td>'+(recent.length>1?sparkline(recent,62,16):'<span class="z">—</span>')+'</td>' +
+          cell(pr2(ret.w1), dirCls(ret.w1,'up','dn')) +
+          cell(pr2(ret.m1), dirCls(ret.m1,'up','dn')) +
+          '<td class="z">'+(rev?rev.label:'—')+'</td>' +
+          cell(rev?B(rev.val)+' '+(c.unit||''):'—') +
+          cell(rev&&rev.yoy!==null&&rev.yoy!==undefined?pc(rev.yoy):'—', dirCls(rev&&rev.yoy,'up','dn')) +
+          cell(ev&&ev.pct1d!==null?pr(ev.pct1d):'—', dirCls(ev&&ev.pct1d,'up','dn')) +
+          '</tr>';
+      }).join('') + '</tbody></table></div>';
+
+    pickFrom(host);
+  })();
 
   // ---------------- 00 · alphabetical accordion ----------------
   // Ticker, not company name: the ticker is what he searches by, and it is what
