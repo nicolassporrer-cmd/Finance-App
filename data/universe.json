@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T10:22:37.533Z",
+  "generatedAt": "2026-09-28T14:03:26.532Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
@@ -511,6 +511,15 @@
       "cik": "0000010795"
     },
     {
+      "ticker": "BE",
+      "rawTicker": "BE",
+      "name": "Bloom Energy Corp",
+      "listName": "Bloom Energy",
+      "sector": "Industrials",
+      "subIndustry": "Electrical Components & Equipment",
+      "cik": "0001664703"
+    },
+    {
       "ticker": "BEN",
       "rawTicker": "BEN",
       "name": "FRANKLIN TEMPLETON INC",
@@ -563,15 +572,6 @@
       "sector": "Energy",
       "subIndustry": "Oil & Gas Equipment & Services",
       "cik": "0001701605"
-    },
-    {
-      "ticker": "BLDR",
-      "rawTicker": "BLDR",
-      "name": "Builders FirstSource, Inc.",
-      "listName": "Builders FirstSource",
-      "sector": "Industrials",
-      "subIndustry": "Building Products",
-      "cik": "0001316835"
     },
     {
       "ticker": "BLK",
@@ -2194,6 +2194,15 @@
       "cik": "0000051253"
     },
     {
+      "ticker": "ILMN",
+      "rawTicker": "ILMN",
+      "name": "ILLUMINA, INC.",
+      "listName": "Illumina, Inc.",
+      "sector": "Health Care",
+      "subIndustry": "Life Sciences Tools & Services",
+      "cik": "0001110803"
+    },
+    {
       "ticker": "INCY",
       "rawTicker": "INCY",
       "name": "INCYTE CORP",
@@ -3184,6 +3193,15 @@
       "cik": "0000797468"
     },
     {
+      "ticker": "P",
+      "rawTicker": "P",
+      "name": "Everpure, Inc.",
+      "listName": "Everpure",
+      "sector": "Information Technology",
+      "subIndustry": "Technology Hardware, Storage & Peripherals",
+      "cik": "0001474432"
+    },
+    {
       "ticker": "PANW",
       "rawTicker": "PANW",
       "name": "Palo Alto Networks Inc",
@@ -3841,15 +3859,6 @@
       "cik": "0000732717"
     },
     {
-      "ticker": "TAP",
-      "rawTicker": "TAP",
-      "name": "MOLSON COORS BEVERAGE CO",
-      "listName": "Molson Coors Beverage Company",
-      "sector": "Consumer Staples",
-      "subIndustry": "Brewers",
-      "cik": "0000024545"
-    },
-    {
       "ticker": "TDG",
       "rawTicker": "TDG",
       "name": "TransDigm Group INC",
@@ -4039,15 +4048,6 @@
       "cik": "0001466258"
     },
     {
-      "ticker": "TTD",
-      "rawTicker": "TTD",
-      "name": "Trade Desk, Inc.",
-      "listName": "Trade Desk (The)",
-      "sector": "Communication Services",
-      "subIndustry": "Advertising",
-      "cik": "0001671933"
-    },
-    {
       "ticker": "TTWO",
       "rawTicker": "TTWO",
       "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
@@ -4167,7 +4167,7 @@
     {
       "ticker": "USB",
       "rawTicker": "USB",
-      "name": "US BANCORP \\DE\\",
+      "name": "US BANCORP DE",
       "listName": "U.S. Bancorp",
       "sector": "Financials",
       "subIndustry": "Diversified Banks",
