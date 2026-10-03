@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T13:57:51.944Z",
+  "generatedAt": "2026-10-03T12:38:13.149Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
