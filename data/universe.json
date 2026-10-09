@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T14:42:00.453Z",
+  "generatedAt": "2026-10-09T14:26:45.281Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
@@ -1094,15 +1094,6 @@
       "sector": "Information Technology",
       "subIndustry": "IT Consulting & Other Services",
       "cik": "0001058290"
-    },
-    {
-      "ticker": "CTVA",
-      "rawTicker": "CTVA",
-      "name": "Corteva, Inc.",
-      "listName": "Corteva",
-      "sector": "Materials",
-      "subIndustry": "Fertilizers & Agricultural Chemicals",
-      "cik": "0001755672"
     },
     {
       "ticker": "CVNA",
@@ -3418,15 +3409,6 @@
       "cik": "0001393311"
     },
     {
-      "ticker": "PSKY",
-      "rawTicker": "PSKY",
-      "name": "Paramount Skydance Corp",
-      "listName": "Paramount Skydance Corporation",
-      "sector": "Communication Services",
-      "subIndustry": "Movies & Entertainment",
-      "cik": "0002041610"
-    },
-    {
       "ticker": "PSX",
       "rawTicker": "PSX",
       "name": "Phillips 66",
@@ -3659,6 +3641,15 @@
       "sector": "Consumer Staples",
       "subIndustry": "Packaged Foods & Meats",
       "cik": "0000091419"
+    },
+    {
+      "ticker": "SKYD",
+      "rawTicker": "SKYD",
+      "name": "Skydance Corp",
+      "listName": "Skydance Corporation",
+      "sector": "Communication Services",
+      "subIndustry": "Movies & Entertainment",
+      "cik": "0002041610"
     },
     {
       "ticker": "SLB",
@@ -4057,6 +4048,15 @@
       "cik": "0000946581"
     },
     {
+      "ticker": "TWLO",
+      "rawTicker": "TWLO",
+      "name": "TWILIO INC",
+      "listName": "Twilio",
+      "sector": "Information Technology",
+      "subIndustry": "Systems Software",
+      "cik": "0001447669"
+    },
+    {
       "ticker": "TXN",
       "rawTicker": "TXN",
       "name": "TEXAS INSTRUMENTS INC",
@@ -4300,6 +4300,15 @@
       "cik": "0001792044"
     },
     {
+      "ticker": "VYLR",
+      "rawTicker": "VYLR",
+      "name": "Vylor Inc.",
+      "listName": "Vylor",
+      "sector": "Consumer Staples",
+      "subIndustry": "Agricultural Products & Services",
+      "cik": "0002128626"
+    },
+    {
       "ticker": "VZ",
       "rawTicker": "VZ",
       "name": "VERIZON COMMUNICATIONS INC",
@@ -4325,15 +4334,6 @@
       "sector": "Health Care",
       "subIndustry": "Life Sciences Tools & Services",
       "cik": "0001000697"
-    },
-    {
-      "ticker": "WBD",
-      "rawTicker": "WBD",
-      "name": "Warner Bros. Discovery, Inc.",
-      "listName": "Warner Bros. Discovery",
-      "sector": "Communication Services",
-      "subIndustry": "Broadcasting",
-      "cik": "0001437107"
     },
     {
       "ticker": "WDAY",

@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-10-08T15:06:17.143Z",
+  "generatedAt": "2026-10-09T14:53:39.642Z",
   "available": true,
   "targetsFetched": false,
-  "problems": [],
+  "problems": [
+    {
+      "ticker": "SKYD",
+      "issue": "no coverage"
+    },
+    {
+      "ticker": "VYLR",
+      "issue": "no coverage"
+    }
+  ],
   "companies": [
     {
       "ticker": "A",
@@ -6291,58 +6300,6 @@
           "sell": 0,
           "strongSell": 0,
           "total": 37
-        }
-      ],
-      "target": null,
-      "targetUnavailable": true
-    },
-    {
-      "ticker": "CTVA",
-      "latest": {
-        "period": "2026-09-01",
-        "strongBuy": 7,
-        "buy": 13,
-        "hold": 9,
-        "sell": 0,
-        "strongSell": 0,
-        "total": 29
-      },
-      "history": [
-        {
-          "period": "2026-06-01",
-          "strongBuy": 7,
-          "buy": 14,
-          "hold": 9,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 30
-        },
-        {
-          "period": "2026-07-01",
-          "strongBuy": 7,
-          "buy": 14,
-          "hold": 9,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 30
-        },
-        {
-          "period": "2026-08-01",
-          "strongBuy": 7,
-          "buy": 13,
-          "hold": 9,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 29
-        },
-        {
-          "period": "2026-09-01",
-          "strongBuy": 7,
-          "buy": 13,
-          "hold": 9,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 29
         }
       ],
       "target": null,
@@ -19704,58 +19661,6 @@
       "targetUnavailable": true
     },
     {
-      "ticker": "PSKY",
-      "latest": {
-        "period": "2026-09-01",
-        "strongBuy": 1,
-        "buy": 2,
-        "hold": 14,
-        "sell": 7,
-        "strongSell": 4,
-        "total": 28
-      },
-      "history": [
-        {
-          "period": "2026-06-01",
-          "strongBuy": 0,
-          "buy": 2,
-          "hold": 15,
-          "sell": 5,
-          "strongSell": 4,
-          "total": 26
-        },
-        {
-          "period": "2026-07-01",
-          "strongBuy": 1,
-          "buy": 2,
-          "hold": 15,
-          "sell": 5,
-          "strongSell": 4,
-          "total": 27
-        },
-        {
-          "period": "2026-08-01",
-          "strongBuy": 1,
-          "buy": 2,
-          "hold": 14,
-          "sell": 6,
-          "strongSell": 4,
-          "total": 27
-        },
-        {
-          "period": "2026-09-01",
-          "strongBuy": 1,
-          "buy": 2,
-          "hold": 14,
-          "sell": 7,
-          "strongSell": 4,
-          "total": 28
-        }
-      ],
-      "target": null,
-      "targetUnavailable": true
-    },
-    {
       "ticker": "PSX",
       "latest": {
         "period": "2026-09-01",
@@ -21104,6 +21009,13 @@
           "total": 22
         }
       ],
+      "target": null,
+      "targetUnavailable": true
+    },
+    {
+      "ticker": "SKYD",
+      "latest": null,
+      "history": [],
       "target": null,
       "targetUnavailable": true
     },
@@ -23396,6 +23308,58 @@
       "targetUnavailable": true
     },
     {
+      "ticker": "TWLO",
+      "latest": {
+        "period": "2026-09-01",
+        "strongBuy": 13,
+        "buy": 19,
+        "hold": 5,
+        "sell": 1,
+        "strongSell": 0,
+        "total": 38
+      },
+      "history": [
+        {
+          "period": "2026-06-01",
+          "strongBuy": 11,
+          "buy": 18,
+          "hold": 6,
+          "sell": 1,
+          "strongSell": 0,
+          "total": 36
+        },
+        {
+          "period": "2026-07-01",
+          "strongBuy": 11,
+          "buy": 18,
+          "hold": 6,
+          "sell": 1,
+          "strongSell": 0,
+          "total": 36
+        },
+        {
+          "period": "2026-08-01",
+          "strongBuy": 13,
+          "buy": 19,
+          "hold": 5,
+          "sell": 1,
+          "strongSell": 0,
+          "total": 38
+        },
+        {
+          "period": "2026-09-01",
+          "strongBuy": 13,
+          "buy": 19,
+          "hold": 5,
+          "sell": 1,
+          "strongSell": 0,
+          "total": 38
+        }
+      ],
+      "target": null,
+      "targetUnavailable": true
+    },
+    {
       "ticker": "TXN",
       "latest": {
         "period": "2026-09-01",
@@ -24800,6 +24764,13 @@
       "targetUnavailable": true
     },
     {
+      "ticker": "VYLR",
+      "latest": null,
+      "history": [],
+      "target": null,
+      "targetUnavailable": true
+    },
+    {
       "ticker": "VZ",
       "latest": {
         "period": "2026-09-01",
@@ -24950,58 +24921,6 @@
           "sell": 0,
           "strongSell": 0,
           "total": 31
-        }
-      ],
-      "target": null,
-      "targetUnavailable": true
-    },
-    {
-      "ticker": "WBD",
-      "latest": {
-        "period": "2026-09-01",
-        "strongBuy": 2,
-        "buy": 5,
-        "hold": 17,
-        "sell": 1,
-        "strongSell": 0,
-        "total": 25
-      },
-      "history": [
-        {
-          "period": "2026-06-01",
-          "strongBuy": 1,
-          "buy": 1,
-          "hold": 19,
-          "sell": 6,
-          "strongSell": 1,
-          "total": 28
-        },
-        {
-          "period": "2026-07-01",
-          "strongBuy": 2,
-          "buy": 5,
-          "hold": 17,
-          "sell": 1,
-          "strongSell": 0,
-          "total": 25
-        },
-        {
-          "period": "2026-08-01",
-          "strongBuy": 2,
-          "buy": 4,
-          "hold": 18,
-          "sell": 1,
-          "strongSell": 0,
-          "total": 25
-        },
-        {
-          "period": "2026-09-01",
-          "strongBuy": 2,
-          "buy": 5,
-          "hold": 17,
-          "sell": 1,
-          "strongSell": 0,
-          "total": 25
         }
       ],
       "target": null,
