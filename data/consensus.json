@@ -1,12 +1,8 @@
 {
-  "generatedAt": "2026-10-17T12:04:41.546Z",
+  "generatedAt": "2026-10-18T12:29:22.563Z",
   "available": true,
   "targetsFetched": false,
   "problems": [
-    {
-      "ticker": "SKYD",
-      "issue": "no coverage"
-    },
     {
       "ticker": "VYLR",
       "issue": "no coverage"
@@ -21014,8 +21010,53 @@
     },
     {
       "ticker": "SKYD",
-      "latest": null,
-      "history": [],
+      "latest": {
+        "period": "2026-09-01",
+        "strongBuy": 1,
+        "buy": 2,
+        "hold": 14,
+        "sell": 7,
+        "strongSell": 4,
+        "total": 28
+      },
+      "history": [
+        {
+          "period": "2026-06-01",
+          "strongBuy": 0,
+          "buy": 2,
+          "hold": 15,
+          "sell": 5,
+          "strongSell": 4,
+          "total": 26
+        },
+        {
+          "period": "2026-07-01",
+          "strongBuy": 1,
+          "buy": 2,
+          "hold": 15,
+          "sell": 5,
+          "strongSell": 4,
+          "total": 27
+        },
+        {
+          "period": "2026-08-01",
+          "strongBuy": 1,
+          "buy": 2,
+          "hold": 14,
+          "sell": 6,
+          "strongSell": 4,
+          "total": 27
+        },
+        {
+          "period": "2026-09-01",
+          "strongBuy": 1,
+          "buy": 2,
+          "hold": 14,
+          "sell": 7,
+          "strongSell": 4,
+          "total": 28
+        }
+      ],
       "target": null,
       "targetUnavailable": true
     },
