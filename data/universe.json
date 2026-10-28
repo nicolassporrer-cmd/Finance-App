@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T13:23:42.944Z",
+  "generatedAt": "2026-10-28T14:09:05.007Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
@@ -4167,7 +4167,7 @@
     {
       "ticker": "USB",
       "rawTicker": "USB",
-      "name": "US BANCORP \\DE\\",
+      "name": "US BANCORP DE",
       "listName": "U.S. Bancorp",
       "sector": "Financials",
       "subIndustry": "Diversified Banks",
