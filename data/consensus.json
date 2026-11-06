@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T15:57:48.609Z",
+  "generatedAt": "2026-11-06T15:36:17.506Z",
   "available": true,
   "targetsFetched": false,
   "problems": [
@@ -14206,58 +14206,6 @@
       "targetUnavailable": true
     },
     {
-      "ticker": "KVUE",
-      "latest": {
-        "period": "2026-11-01",
-        "strongBuy": 2,
-        "buy": 4,
-        "hold": 14,
-        "sell": 0,
-        "strongSell": 0,
-        "total": 20
-      },
-      "history": [
-        {
-          "period": "2026-08-01",
-          "strongBuy": 2,
-          "buy": 4,
-          "hold": 14,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 20
-        },
-        {
-          "period": "2026-09-01",
-          "strongBuy": 2,
-          "buy": 4,
-          "hold": 14,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 20
-        },
-        {
-          "period": "2026-10-01",
-          "strongBuy": 2,
-          "buy": 4,
-          "hold": 14,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 20
-        },
-        {
-          "period": "2026-11-01",
-          "strongBuy": 2,
-          "buy": 4,
-          "hold": 14,
-          "sell": 0,
-          "strongSell": 0,
-          "total": 20
-        }
-      ],
-      "target": null,
-      "targetUnavailable": true
-    },
-    {
       "ticker": "L",
       "latest": {
         "period": "2023-01-01",
@@ -18048,6 +17996,58 @@
           "sell": 0,
           "strongSell": 0,
           "total": 27
+        }
+      ],
+      "target": null,
+      "targetUnavailable": true
+    },
+    {
+      "ticker": "OKTA",
+      "latest": {
+        "period": "2026-11-01",
+        "strongBuy": 12,
+        "buy": 29,
+        "hold": 10,
+        "sell": 0,
+        "strongSell": 0,
+        "total": 51
+      },
+      "history": [
+        {
+          "period": "2026-08-01",
+          "strongBuy": 12,
+          "buy": 28,
+          "hold": 11,
+          "sell": 1,
+          "strongSell": 0,
+          "total": 52
+        },
+        {
+          "period": "2026-09-01",
+          "strongBuy": 13,
+          "buy": 30,
+          "hold": 9,
+          "sell": 0,
+          "strongSell": 0,
+          "total": 52
+        },
+        {
+          "period": "2026-10-01",
+          "strongBuy": 12,
+          "buy": 29,
+          "hold": 10,
+          "sell": 0,
+          "strongSell": 0,
+          "total": 51
+        },
+        {
+          "period": "2026-11-01",
+          "strongBuy": 12,
+          "buy": 29,
+          "hold": 10,
+          "sell": 0,
+          "strongSell": 0,
+          "total": 51
         }
       ],
       "target": null,

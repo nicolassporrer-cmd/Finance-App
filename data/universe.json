@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T15:33:49.685Z",
+  "generatedAt": "2026-11-06T15:11:36.232Z",
   "source": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
   "note": "S&P 500 membership is proprietary; this list is community-maintained. CIKs are taken from SEC, not from the source CSV.",
   "count": 503,
@@ -2464,15 +2464,6 @@
       "cik": "0000056873"
     },
     {
-      "ticker": "KVUE",
-      "rawTicker": "KVUE",
-      "name": "Kenvue Inc.",
-      "listName": "Kenvue",
-      "sector": "Consumer Staples",
-      "subIndustry": "Personal Care Products",
-      "cik": "0001944048"
-    },
-    {
       "ticker": "L",
       "rawTicker": "L",
       "name": "LOEWS CORP",
@@ -3128,6 +3119,15 @@
       "sector": "Energy",
       "subIndustry": "Oil & Gas Storage & Transportation",
       "cik": "0001039684"
+    },
+    {
+      "ticker": "OKTA",
+      "rawTicker": "OKTA",
+      "name": "Okta, Inc.",
+      "listName": "Okta, Inc.",
+      "sector": "Information Technology",
+      "subIndustry": "Application Software",
+      "cik": "0001660134"
     },
     {
       "ticker": "OMC",
